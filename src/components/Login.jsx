@@ -13,18 +13,19 @@ function Login() {
       <div className='container is-fluid'>
         <div style={{ width: "400px", margin: "0 auto", paddingTop: "3rem" }}>
           <p className='is-size-2'>Nice to see you again!</p>
-          <form>
+
+          <div className='control'>
+            <input
+              className='input'
+              type='email'
+              name='email'
+              value=''
+              placeholder='Email'
+              required
+            />
             <div>
               <input
-                type='email'
-                name='email'
-                value=''
-                placeholder='Email'
-                required
-              />
-            </div>
-            <div>
-              <input
+                className='input'
                 type='password'
                 name='password'
                 value=''
@@ -33,7 +34,11 @@ function Login() {
               />
             </div>
             <div>
-              <button onClick={submitHandler}>Log in</button>
+              <button
+                className='button is-primary is-centered'
+                onClick={submitHandler}>
+                Log in
+              </button>
             </div>
             <div>
               <p>
@@ -41,7 +46,7 @@ function Login() {
                 <Link to='/signup'>here!</Link>
               </p>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </>
