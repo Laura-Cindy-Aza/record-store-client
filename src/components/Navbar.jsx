@@ -9,10 +9,10 @@ function Navbar() {
           <h2>Record Store</h2>
         </div>
 
-        <Link className='button is-light' to='/Login'>
+        <Link className='button is-light' to='/login'>
           <span>Login</span>
         </Link>
-        <Link className='button is-dark' to='/Signup'>
+        <Link className='button is-dark' to='/signup'>
           <span>Sign up</span>
         </Link>
       </nav>
