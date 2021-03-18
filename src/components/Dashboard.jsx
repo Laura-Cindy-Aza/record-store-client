@@ -21,7 +21,7 @@ function Dashboard() {
             {/* Map through the records and display them */}
             {recordsData.map((record) =>
                 <div className="box">
-                    <img src={record.cover} alt={record.title} className="card-image"></img>
+                    <img rc={record.cover} alt={record.title} className="card-image"></img>
                     <p className="content">{record.title}</p>
                     <p className="content">{record.artist}</p>
                     <p className="content">{record.year}</p>
