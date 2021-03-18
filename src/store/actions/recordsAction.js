@@ -8,11 +8,3 @@ export const getRecordsAction = () => async (dispatch) => {
     payload: response.data,
   });
 };
-
-// export const getRecordAction = async () => {
-//   const response = await helpFetchRecords();
-//   return {
-//     type: "GET_RECORDS",
-//     payload: response.data,
-//   };
-// };
