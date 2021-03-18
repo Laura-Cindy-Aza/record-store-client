@@ -1,6 +1,6 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css";
 
-box1 {
+.box1 {
   border: 2px solid blue;
   width: 100%;
 }
@@ -11,4 +11,18 @@ box1 {
   background-size: cover;
   width: 100vw;
   height: 100vh;
+}
+.navbar-item1 {
+  background-size: cover;
+  width: 60px;
+  margin: 10px;
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgb(190, 190, 190) 0%,
+    rgb(96, 214, 230) 21%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  margin: 30px 40px;
+  cursor: pointer;
 }
