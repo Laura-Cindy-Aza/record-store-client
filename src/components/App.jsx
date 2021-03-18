@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import Dashboard from "./Dashboard";
 import Login from "./Login";
