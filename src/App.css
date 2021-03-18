@@ -1,11 +1,17 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css";
 
-box1 {
+.box1 {
   border: 2px solid blue;
   width: 100%;
 }
 
-<<<<<<< HEAD
+.Main {
+  background-image: url("https://cdn.pixabay.com/photo/2016/08/15/16/48/vinyl-1595847_960_720.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
 .navbar-item1 {
   background-size: cover;
   width: 60px;
@@ -19,12 +25,4 @@ box1 {
   );
   margin: 30px 40px;
   cursor: pointer;
-=======
-.Main {
-  background-image: url("https://cdn.pixabay.com/photo/2016/08/15/16/48/vinyl-1595847_960_720.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100vw;
-  height: 100vh;
->>>>>>> 7abf3fd7d3ca68517cb3914c0bbc2fed72366dfb
 }
