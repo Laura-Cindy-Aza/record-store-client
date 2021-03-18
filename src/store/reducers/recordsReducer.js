@@ -1,14 +1,17 @@
 const initialState = {
-    records: ["Dark Side of the Moon", "The Wall"]
-}
+  records: [],
+};
 const recordsReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case 'GET_RECORDS':
-            return state
-        
-        default:
-            return state
-    }
+  switch (action.type) {
+    case "GET_RECORDS":
+      return {
+        ...state,
+        records: action.payload,
+      };
+
+    default:
+      return state;
+  }
 };
 
 export default recordsReducer;
