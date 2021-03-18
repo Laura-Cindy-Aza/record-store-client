@@ -8,7 +8,6 @@ function Navbar() {
                 <div>
                     <h2>Record Store</h2>
                 </div>
-                
                 <Link to="/Login">
                     <span>Login</span>
                 </Link>
