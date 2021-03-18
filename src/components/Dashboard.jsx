@@ -17,7 +17,7 @@ function Dashboard() {
     <div>
       <h1>Dashboard</h1>
       <h3>Here you can find all our records</h3>
-      <div className='columns is-vcentered'>
+      <div className='columns is-multiline'>
         {/* Map through the records and display them */}
         {recordsData.map((record) => (
           <div className='card column is-one-quarter'>
