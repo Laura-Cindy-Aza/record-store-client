@@ -1,10 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
-import logo from '../statics/logo.png'
-=======
 import logo from "../statics/logo.svg";
->>>>>>> 7abf3fd7d3ca68517cb3914c0bbc2fed72366dfb
 
 function Navbar() {
   return (
