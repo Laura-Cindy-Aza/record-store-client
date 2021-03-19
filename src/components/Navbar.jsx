@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from '../statics/logo.png'
+import Logo from '../statics/logo.png'
 
 function Navbar() {
   return (
@@ -11,7 +11,7 @@ function Navbar() {
         <div className='navbar-brand icon-text'>
           <a className='navbar-item1 icon has-text-danger ' href='http://localhost:3000/'>
 
-          <img className=' is-large icon-text' src={logo} alt='logo' />
+          <img className=' is-large icon-text' src={Logo} alt='logo' />
           <span className=' is-size-1-fullhd  has-text-weight-medium	'>Vasili's Records </span>
           </a>
 
