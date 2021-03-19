@@ -12,7 +12,7 @@ function Navbar() {
           <a className='navbar-item1 icon has-text-danger ' href='http://localhost:3000/'>
 
           <img className=' is-large icon-text' src={logo} alt='logo' />
-          <span className=' is-size-1-fullhd  has-text-weight-medium	'>Vasili's Records </span>
+          <span className=' is-size-5  has-text-weight-medium	'>Vasili's Records </span>
           </a>
 
 
