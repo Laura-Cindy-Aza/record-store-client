@@ -7,7 +7,8 @@ export const helpFetchRecords = async () => {
   return res;
 };
 
-export const helpFetchUser = async () => {
+export const helpFetchUsers = async () => {
   console.log("Helper USER works!");
-  const res = await axios.get("https://localhost:5000/users")
-}
+  const res = await axios.get("https://localhost:5000/users");
+  return res;
+};

@@ -23,8 +23,8 @@ function Dashboard() {
           <div className='card column is-one-fifth m-2'>
             <img src={record.cover} alt={record.title} className='card-image' />
             <div className='card-content'>
-              <p className='content'>{record.title}</p>
-              <p className='content'>{record.artist}</p>
+              <p className='content is-size-4'>{record.artist}</p>
+              <p className='content is-size-5 '>{record.title}</p>
               <p className='content'>{record.year}</p>
             </div>
           </div>
