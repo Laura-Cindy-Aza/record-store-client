@@ -10,13 +10,8 @@ function Navbar() {
       <nav className='navbar' role='navigation' aria-label='main navigation'>
         <div className='navbar-brand icon-text'>
           <a className='navbar-item1 icon has-text-danger ' href='http://localhost:3000/'>
-            <a className='navbar-item1 icon has-text-danger ' href='http://localhost:3000/'>
 
-<<<<<<< HEAD
           <img className=' is-large icon-text' src={Logo} alt='logo' />
-=======
-          <img className=' is-large icon-text' src={logo} alt='logo' />
->>>>>>> 87299b9efd9200b80b9c4e7e557a03fd62f0ca8d
           <span className=' is-size-5  has-text-weight-medium	'>Vasili's Records </span>
           </a>
 
