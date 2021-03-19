@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { userLogin } from "../store/actions/authAction";
 import { getUsersAction } from "../store/actions/usersAction";
 import { Link } from "react-router-dom";
+import Lady from "../assets/lady-headphones.jpg";
+
 // import { useForm } from "react-hook-form";
 
 function Login() {
@@ -65,11 +67,16 @@ function Login() {
   return (
     <>
       <div className='container is-fluid'>
-        <div style={{ width: "400px", margin: "0 auto", paddingTop: "3rem" }}>
-          <p className='is-size-2'>Nice to see you again!</p>
-          <div className="control">
-            <div>
+        <div className='columns'>
+          <div
+            className='column is-half'
+            style={{ width: "400px", margin: "0 auto", paddingTop: "3rem" }}>
+            <p className='is-size-2'>Nice to see you again!</p>
+
+            <div className='control mt-3'>
+
               <input
+                className='input'
                 type='email'
                 name='email'
                 value={formData.email}
@@ -78,26 +85,38 @@ function Login() {
                 onChange={changeHandler}
                 ref={inputRef}
               />
-            </div>
-            <div>
-              <input
-                type='password'
-                name='password'
-                value={formData.password}
-                placeholder='Password'
-                required
-                onChange={changeHandler}
-              />
-            </div>
-            <div>
-              <button onClick={submitHandler}>Log in</button>
+              <div>
+                <input
+                  className='input mt-4'
+                  type='password'
+                  name='password'
+                  value={formData.password}
+                  placeholder='Password'
+                  required
+                  onChange={changeHandler}
+                />
+              </div>
+              <div className='is-flex is-centered'>
+                <button
+                  className=' button is-primary  mt-5'
+                  onClick={submitHandler}>
+                  Log in
+                </button>
               {redirect === "wrong" && <p className="has-text-danger">You flipped! Try again</p>}
+              </div>
+              <div className='columns is-centered'>
+                <p className='mt-4'>
+                  What? You don't have an acount? Create one{" "}
+                  <Link to='/signup'>here!</Link>
+                </p>
+              </div>
             </div>
-            <div>
-              <p>
-                What? You don't have an acount? Create one{" "}
-                <Link to='/signup'>here!</Link>
-              </p>
+
+          </div>
+          <div className='column is-half mt-4 opcity-'>
+            <div className='card'>
+              <img className='card' src={Lady} alt='' />
+
             </div>
           </div>
         </div>

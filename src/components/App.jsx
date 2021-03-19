@@ -14,7 +14,6 @@ function App() {
       <header>
         <Navbar />
       </header>
-
       <Switch>
         <Route exact path='/' component={LandingPage} />
         <Route path='/dashboard' component={Dashboard} />
