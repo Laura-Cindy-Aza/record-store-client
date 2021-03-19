@@ -4,7 +4,7 @@ export const getUsersAction = () => {
     }
 }
 
-export const addUserAction = () => {
+export const addUserAction = (formData) => {
     return {
         type: 'ADD_USER',
         payload: formData

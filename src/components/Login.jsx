@@ -1,14 +1,68 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Redirect, useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { userLogin } from "../store/actions/authAction";
+import { getUsersAction } from "../store/actions/usersAction";
 import { Link } from "react-router-dom";
 import Lady from "../assets/lady-headphones.jpg";
 
 // import { useForm } from "react-hook-form";
 
 function Login() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUsersAction())
+  }, []);
+
+  // to go back
+  const history = useHistory();
+
+  // Redux
+  const authenticatedState = useSelector((state) => state.authenticationReducer);
+
+  // get user data
+  const usersData = useSelector((state) => {
+    return state.usersFromReducer.users
+})
+
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [redirect, setRedirect] = useState("");
+  
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  const changeHandler = (e) => {
+    setFormData({ ...formData, [e.target.email]: e.target.value });
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
+    setRedirect(checkLoginInfo());
   };
+
+  const checkLoginInfo = () => {
+    // check if user exists
+    const permissionCheck = usersData.reduce((accumulator, user) => {
+      if (formData.email === user.email && formData.password === user.password) {
+        accumulator = "user"
+      } return accumulator
+    }, "")
+
+    if (permissionCheck === "") {
+      return "wrong"
+    } else {
+      return permissionCheck
+    }
+  };
+
+  if (redirect === "user") {
+    dispatch(userLogin(formData.email))
+    return <Redirect to={{ pathname: "/dashboard", email: formData.email }} />;
+  }
 
   return (
     <>
@@ -20,22 +74,26 @@ function Login() {
             <p className='is-size-2'>Nice to see you again!</p>
 
             <div className='control mt-3'>
+
               <input
                 className='input'
                 type='email'
                 name='email'
-                value=''
+                value={formData.email}
                 placeholder='Email'
                 required
+                onChange={changeHandler}
+                ref={inputRef}
               />
               <div>
                 <input
                   className='input mt-4'
                   type='password'
                   name='password'
-                  value=''
+                  value={formData.password}
                   placeholder='Password'
                   required
+                  onChange={changeHandler}
                 />
               </div>
               <div className='is-flex is-centered'>
@@ -44,6 +102,7 @@ function Login() {
                   onClick={submitHandler}>
                   Log in
                 </button>
+              {redirect === "wrong" && <p className="has-text-danger">You flipped! Try again</p>}
               </div>
               <div className='columns is-centered'>
                 <p className='mt-4'>
@@ -52,10 +111,12 @@ function Login() {
                 </p>
               </div>
             </div>
+
           </div>
           <div className='column is-half mt-4 opcity-'>
             <div className='card'>
               <img className='card' src={Lady} alt='' />
+
             </div>
           </div>
         </div>
