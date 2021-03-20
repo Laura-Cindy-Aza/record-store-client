@@ -6,27 +6,25 @@ import { getUsersAction } from "../store/actions/usersAction";
 import { Link } from "react-router-dom";
 import Lady from "../assets/lady-headphones.jpg";
 
-// import { useForm } from "react-hook-form";
-
 function Login() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getUsersAction());
   }, []);
+  // get user data
+  const usersData = useSelector((state) => {
+    return state.usersFromReducer.users;
+  });
 
   // to go back
   const history = useHistory();
 
   // Redux
+
   const authenticatedState = useSelector(
     (state) => state.authenticationReducer
   );
-
-  // get user data
-  const usersData = useSelector((state) => {
-    return state.usersFromReducer.users;
-  });
 
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [redirect, setRedirect] = useState("");
@@ -43,6 +41,7 @@ function Login() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
     setRedirect(checkLoginInfo());
   };
 
@@ -78,7 +77,7 @@ function Login() {
             className='column is-half'
             style={{ width: "400px", margin: "0 auto", paddingTop: "3rem" }}>
             <p className='is-size-2'>Nice to see you again!</p>
-            <form onSubmit={submitHandler} noValidate>
+            <form onSubmit={() => submitHandler} noValidate>
               <div className='control mt-3'>
                 <input
                   className='input'

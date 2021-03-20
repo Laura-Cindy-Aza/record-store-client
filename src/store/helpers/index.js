@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const helpFetchRecords = async () => {
-  console.log("Helper func running!!");
+  console.log("Helper RECORDS running!!");
   const res = await axios.get("http://localhost:5000/records");
   console.log("res", res);
   return res;
@@ -9,6 +9,8 @@ export const helpFetchRecords = async () => {
 
 export const helpFetchUsers = async () => {
   console.log("Helper USER works!");
-  const res = await axios.get("https://localhost:5000/users");
+  const res = await axios.get("http://localhost:5000/users");
+  console.log("res", res);
+
   return res;
 };
