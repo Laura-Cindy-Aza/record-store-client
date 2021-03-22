@@ -6,6 +6,7 @@ import { userLogin } from "../store/actions/authAction";
 import { userLoginAction } from "../store/actions/authAction";
 import { Link } from "react-router-dom";
 import Lady from "../assets/lady-headphones.jpg";
+import Navbar from './Navbar'
 
 function Login() {
   const isAuth = useSelector((state) => state.authFromReducer.isAuth);
@@ -30,7 +31,6 @@ function Login() {
 
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [redirect, setRedirect] = useState("");
-
   const inputRef = useRef();
 
   useEffect(() => {
@@ -46,9 +46,19 @@ function Login() {
 
     dispatch(userLoginAction(formData));
   };
-  if (isAuth) return <Redirect to='/dashboard' />;
+  if (isAuth) return <Redirect to='/dashboard' />
+
+
+
+
+
+
+
+  //Rendering part!!!!
+
   return (
     <>
+    <Navbar />
       <div className='container is-fluid'>
         <div className='columns'>
           <div
@@ -104,6 +114,7 @@ function Login() {
       </div>
     </>
   );
+  //end of rendering part!!!!
 }
 
 export default Login;

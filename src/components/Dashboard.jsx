@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecordsAction } from "../store/actions/recordsAction";
+import Avatar from 'react-avatar';
+import Dashbar from './Dashbar'
+
 
 function Dashboard() {
   const dispatch = useDispatch();
@@ -14,6 +17,11 @@ function Dashboard() {
   });
 
   return (
+
+    <>
+    <Dashbar />
+
+
     <div className='container'>
       <h1 className='is-size-2'>Dashboard</h1>
       <h3>Here you can find all our records</h3>
@@ -25,12 +33,14 @@ function Dashboard() {
             <div className='card-content'>
               <p className='content is-size-4'>{record.artist}</p>
               <p className='content is-size-5 '>{record.title}</p>
-              <p className='content'>{record.year}</p>
+              <p className='content'>{(record.year).slice(0,4)}</p>
             </div>
           </div>
         ))}
       </div>
     </div>
+
+    </>
   );
 }
 
