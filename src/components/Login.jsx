@@ -2,31 +2,31 @@ import React, { useState, useEffect, useRef } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { userLogin } from "../store/actions/authAction";
-import { getUsersAction } from "../store/actions/usersAction";
+// import { getUsersAction } from "../store/actions/usersAction";
+import { userLoginAction } from "../store/actions/authAction";
 import { Link } from "react-router-dom";
 import Lady from "../assets/lady-headphones.jpg";
 
-// import { useForm } from "react-hook-form";
-
 function Login() {
+  const isAuth = useSelector((state) => state.authFromReducer.isAuth);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getUsersAction());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getUsersAction());
+  // }, []);
+  // // get user data
+  // // const usersData = useSelector((state) => {
+  // //   return state.usersFromReducer.users;
+  // // });
 
   // to go back
   const history = useHistory();
 
   // Redux
-  const authenticatedState = useSelector(
-    (state) => state.authenticationReducer
-  );
 
-  // get user data
-  const usersData = useSelector((state) => {
-    return state.usersFromReducer.users;
-  });
+  // const authenticatedState = useSelector(
+  //   (state) => state.authenticationReducer
+  // );
 
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [redirect, setRedirect] = useState("");
@@ -41,35 +41,12 @@ function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    setRedirect(checkLoginInfo());
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    dispatch(userLoginAction(formData));
   };
-
-  const checkLoginInfo = () => {
-    // check if user exists
-    const permissionCheck = usersData.reduce((accumulator, user) => {
-      if (
-        formData.email === user.email &&
-        formData.password === user.password
-      ) {
-        accumulator = "user";
-      }
-      return accumulator;
-    }, "");
-
-    if (permissionCheck === "") {
-      return "wrong";
-    } else {
-      return permissionCheck;
-    }
-  };
-
-  if (redirect === "user") {
-    dispatch(userLogin(formData.email));
-    return <Redirect to={{ pathname: "/dashboard", email: formData.email }} />;
-  }
-
+  if (isAuth) return <Redirect to='/dashboard' />;
   return (
     <>
       <div className='container is-fluid'>

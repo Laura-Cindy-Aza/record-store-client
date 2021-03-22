@@ -7,8 +7,10 @@ import Login from "./Login";
 import Signup from "./Signup";
 import User from "./User";
 import userProfile from "./UserProfile";
+import { useSelector } from "react-redux";
 
 function App() {
+  const isAuth = useSelector((state) => state.authFromReducer.isAuth);
   return (
     <>
       <header>
@@ -16,7 +18,7 @@ function App() {
       </header>
       <Switch>
         <Route exact path='/' component={LandingPage} />
-        <Route path='/dashboard' component={Dashboard} />
+        {isAuth && <Route path='/dashboard' component={Dashboard} />}
         <Route path='/login' component={Login} />
         <Route path='/signup' component={Signup} />
         <Route path='/user' component={User} />
