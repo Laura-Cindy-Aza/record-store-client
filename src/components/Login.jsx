@@ -2,29 +2,31 @@ import React, { useState, useEffect, useRef } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { userLogin } from "../store/actions/authAction";
-import { getUsersAction } from "../store/actions/usersAction";
+// import { getUsersAction } from "../store/actions/usersAction";
+import { userLoginAction } from "../store/actions/authAction";
 import { Link } from "react-router-dom";
 import Lady from "../assets/lady-headphones.jpg";
 
 function Login() {
+  const isAuth = useSelector((state) => state.authFromReducer.isAuth);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getUsersAction());
-  }, []);
-  // get user data
-  const usersData = useSelector((state) => {
-    return state.usersFromReducer.users;
-  });
+  // useEffect(() => {
+  //   dispatch(getUsersAction());
+  // }, []);
+  // // get user data
+  // // const usersData = useSelector((state) => {
+  // //   return state.usersFromReducer.users;
+  // // });
 
   // to go back
   const history = useHistory();
 
   // Redux
 
-  const authenticatedState = useSelector(
-    (state) => state.authenticationReducer
-  );
+  // const authenticatedState = useSelector(
+  //   (state) => state.authenticationReducer
+  // );
 
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [redirect, setRedirect] = useState("");
@@ -39,36 +41,12 @@ function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const submitHandler = (e) => {
-    e.preventDefault();
+  const submitHandler = (event) => {
+    event.preventDefault();
 
-    setRedirect(checkLoginInfo());
+    dispatch(userLoginAction(formData));
   };
-
-  const checkLoginInfo = () => {
-    // check if user exists
-    const permissionCheck = usersData.reduce((accumulator, user) => {
-      if (
-        formData.email === user.email &&
-        formData.password === user.password
-      ) {
-        accumulator = "user";
-      }
-      return accumulator;
-    }, "");
-
-    if (permissionCheck === "") {
-      return "wrong";
-    } else {
-      return permissionCheck;
-    }
-  };
-
-  if (redirect === "user") {
-    dispatch(userLogin(formData.email));
-    return <Redirect to={{ pathname: "/dashboard", email: formData.email }} />;
-  }
-
+  if (isAuth) return <Redirect to='/dashboard' />;
   return (
     <>
       <div className='container is-fluid'>
@@ -77,7 +55,7 @@ function Login() {
             className='column is-half'
             style={{ width: "400px", margin: "0 auto", paddingTop: "3rem" }}>
             <p className='is-size-2'>Nice to see you again!</p>
-            <form onSubmit={() => submitHandler} noValidate>
+            <form onSubmit={submitHandler} noValidate>
               <div className='control mt-3'>
                 <input
                   className='input'

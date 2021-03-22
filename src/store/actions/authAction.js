@@ -1,8 +1,11 @@
+import { helpCheckUSer } from "../helpers";
 import { USER_LOGIN } from "./types";
 
-export const userLogin = (username) => {
-  return {
+export const userLoginAction = (formData) => async (dispatch) => {
+  const response = await helpCheckUSer(formData);
+  console.log("login action", response);
+  dispatch({
     type: USER_LOGIN,
-    payload: username,
-  };
+    payload: response.data,
+  });
 };
