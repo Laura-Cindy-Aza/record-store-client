@@ -5,7 +5,7 @@ import recordsReducer from "./recordsReducer";
 
 const allReducers = combineReducers({
   authFromReducer: authenticationReducer,
-  // usersFromReducer: usersReducer,
+  userFromReducer: usersReducer,
   recordsFromReducer: recordsReducer,
 });
 
