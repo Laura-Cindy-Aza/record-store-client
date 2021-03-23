@@ -7,15 +7,15 @@ import Login from "./Login";
 import Signup from "./Signup";
 import User from "./User";
 import userProfile from "./UserProfile";
+import notValid from './notValid'
 import { useSelector } from "react-redux";
 
 function App() {
   const isAuth = useSelector((state) => state.authFromReducer.isAuth);
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
+
+
       <Switch>
         <Route exact path='/' component={LandingPage} />
         {isAuth && <Route path='/dashboard' component={Dashboard} />}
@@ -23,6 +23,7 @@ function App() {
         <Route path='/signup' component={Signup} />
         <Route path='/user' component={User} />
         <Route path='/userprofile' component={userProfile} />
+        <Route path='/notValid' component={notValid} />
       </Switch>
     </>
   );

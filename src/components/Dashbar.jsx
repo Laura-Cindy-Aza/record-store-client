@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../statics/logo.png";
+import Avatar from 'react-avatar'
 
 function Navbar() {
   return (
@@ -11,8 +12,8 @@ function Navbar() {
           <a
             className='navbar-item1 icon has-text-danger '
             href='http://localhost:3000/'>
-            <img className=' is-large icon-text' src={logo} alt='logo' />
-            <span className=' is-size-5  has-text-weight-medium	'>
+               <Avatar twitterHandle="sitebase" size="40" color='#00C4A7'/>
+            <span className=' is-size-5  has-text-weight-medium	 ml-2'>
               Vasili's Records{" "}
             </span>
           </a>
@@ -24,11 +25,8 @@ function Navbar() {
         <div className='navbar-menu is-active'>
           <div className='navbar-end'>
             <div className='buttons'>
-              <Link className='button is-primary' to='/login'>
-                <span>Login</span>
-              </Link>
-              <Link className='button is-dark' to='/signup'>
-                <span>Sign up</span>
+              <Link className='button is-primary' to='/'>
+                <span>Logout</span>
               </Link>
             </div>
           </div>
