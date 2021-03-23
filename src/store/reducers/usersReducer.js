@@ -1,26 +1,26 @@
-import { GET_USERS } from "../actions/types";
+import { ADD_USER, GET_USERS } from "../actions/types";
 
 // a reducer is a function that takes 2 parameters (initialState, action) and returns a copy of the state to the store
 // every reducer needs:
 // 1. initial state
 // 2. logic conditions => if statement / switch case
 
-// const initialState = {
-//   users: [],
-//   errorMessage: "",
-// };
+const initialState = {
+  user: {},
+  errorMessage: "",
+};
 
-// const usersReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case GET_USERS:
-//       return {
-//         ...state,
-//         users: action.payload,
-//       };
+const usersReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_USER:
+      return {
+        ...state,
+        user: action.payload,
+      };
 
-//     default:
-//       return state;
-//   }
-// };
+    default:
+      return state;
+  }
+};
 
-// export default usersReducer;
+export default usersReducer;

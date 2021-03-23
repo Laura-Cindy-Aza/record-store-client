@@ -7,13 +7,16 @@ export const helpFetchRecords = async () => {
   return res;
 };
 
-// export const helpFetchUsers = async () => {
-//   console.log("Helper USER works!");
-//   const res = await axios.get("http://localhost:5000/users");
-//   console.log("res", res);
+export const helpAddUser = async (formData) => {
+  const stringifiedData = JSON.stringify(formData);
+  console.log("Helper ADD_USER works!");
+  const res = await axios.post("http://localhost:5000/users", stringifiedData, {
+    headers: { "Content-Type": "application/json" },
+  });
+  console.log("res", res);
 
-//   return res;
-// };
+  return res;
+};
 
 export const helpCheckUSer = async (formData) => {
   const stringifiedData = JSON.stringify(formData);

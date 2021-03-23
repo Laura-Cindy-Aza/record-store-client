@@ -1,5 +1,6 @@
 // import { helpFetchUsers } from "../helpers";
-import { GET_USERS, ADD_USER } from "./types";
+import { helpAddUser } from "../helpers";
+import { ADD_USER } from "./types";
 
 // export const getUsersAction = () => async (dispatch) => {
 //   const response = await helpFetchUsers();
@@ -10,9 +11,10 @@ import { GET_USERS, ADD_USER } from "./types";
 //   });
 // };
 
-export const addUserAction = (formData) => {
-  return {
+export const addUserAction = (formData) => async (dispatch) => {
+  const response = await helpAddUser(formData);
+  dispatch({
     type: ADD_USER,
-    payload: formData,
-  };
+    payload: response.data,
+  });
 };

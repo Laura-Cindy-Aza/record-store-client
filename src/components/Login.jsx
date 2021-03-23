@@ -6,10 +6,11 @@ import { userLogin } from "../store/actions/authAction";
 import { userLoginAction } from "../store/actions/authAction";
 import { Link } from "react-router-dom";
 import Lady from "../assets/lady-headphones.jpg";
-import Navbar from './Navbar'
+import Navbar from "./Navbar";
 
 function Login() {
   const isAuth = useSelector((state) => state.authFromReducer.isAuth);
+  const errorMsg = useSelector((state) => state.authFromReducer.errorMsg);
   const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -46,19 +47,13 @@ function Login() {
 
     dispatch(userLoginAction(formData));
   };
-  if (isAuth) return <Redirect to='/dashboard' />
-
-
-
-
-
-
+  if (isAuth) return <Redirect to='/dashboard' />;
 
   //Rendering part!!!!
 
   return (
     <>
-    <Navbar />
+      <Navbar />
       <div className='container is-fluid'>
         <div className='columns'>
           <div
@@ -88,13 +83,13 @@ function Login() {
                     onChange={changeHandler}
                   />
                 </div>
+                {!isAuth && errorMsg && (
+                  <p className='has-text-danger'>{errorMsg}</p>
+                )}
                 <div className='is-flex is-centered'>
                   <button className=' button is-primary is-block  is-fullwidth mt-4'>
                     Log in
                   </button>
-                  {redirect === "wrong" && (
-                    <p className='has-text-danger'>You flipped! Try again</p>
-                  )}
                 </div>
                 <div className='columns is-centered'>
                   <p className='mt-4'>
