@@ -1,4 +1,4 @@
-import { USER_LOGIN, USER_LOGIN_FAILED } from "../actions/types";
+import { USER_LOGIN, USER_LOGIN_FAILED, LOGOUT_USER } from "../actions/types";
 const initialState = {
   isAuth: false,
   user: {},
@@ -27,6 +27,19 @@ const authenticationReducer = (state = initialState, action) => {
         errorMsg: action.payload,
       };
       return unloggedUser;
+    case LOGOUT_USER:
+      localStorage.clear();
+      const loggedOutUser = {
+        ...state,
+        user: {
+          ...state.user,
+          ...action.payload,
+        },
+        isAuth: false,
+        errorMsg: "",
+      };
+
+      return loggedOutUser;
 
     default:
       return state;

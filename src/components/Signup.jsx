@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect, useHistory, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { userLogin } from "../store/actions/authAction";
+import { userLogin, userLoginAction } from "../store/actions/authAction";
 // import { getUsersAction } from "../store/actions/usersAction";
-import { Link } from "react-router-dom";
+
 import music from "../assets/music-6053548_1280.jpg";
 import { addUserAction } from "../store/actions/usersAction";
 import Navbar from "./Navbar";
@@ -44,6 +44,8 @@ function Signup() {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(addUserAction(formData));
+    dispatch(userLoginAction(formData));
+    history.push("/dashboard");
   };
 
   return (

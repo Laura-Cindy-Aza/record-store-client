@@ -1,9 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import logo from "../statics/logo.png";
-import Avatar from 'react-avatar'
+import Avatar from "react-avatar";
+import { logoutUserAction } from "../store/actions/authAction";
+import { useSelector, useDispatch } from "react-redux";
 
 function Navbar() {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const HandleLogout = () => {
+    dispatch(logoutUserAction());
+    history.push("/");
+  };
   return (
     <>
       {/* Logo or brand  */}
@@ -12,7 +20,7 @@ function Navbar() {
           <a
             className='navbar-item1 icon has-text-danger '
             href='http://localhost:3000/'>
-               <Avatar twitterHandle="sitebase" size="40" color='#00C4A7'/>
+            <Avatar twitterHandle='sitebase' size='40' color='#00C4A7' />
             <span className=' is-size-5  has-text-weight-medium	 ml-2'>
               Vasili's Records{" "}
             </span>
@@ -25,7 +33,7 @@ function Navbar() {
         <div className='navbar-menu is-active'>
           <div className='navbar-end'>
             <div className='buttons'>
-              <Link className='button is-primary' to='/'>
+              <Link onClick={HandleLogout} className='button is-primary'>
                 <span>Logout</span>
               </Link>
             </div>
