@@ -25,10 +25,10 @@ function App() {
         <Route path='/user' component={User} />
         <Route path='/UserProfile' component={UserProfile} />
         <Route path='/notValid' component={notValid} />
-        <Route path='/*' component={notValid} />
+        <Route path='/order' component={Order} />
         <Route path='/Homepage' component={Homepage} />
         <Route path='/RecordInfo' component={RecordInfo} />
-        <Route path='/Order' component={Order} />
+        <Route path='/*' component={notValid} />
       </Switch>
     </>
   );

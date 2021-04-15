@@ -4,14 +4,19 @@ import logo from "../statics/logo.png";
 import Avatar from "react-avatar";
 import { logoutUserAction } from "../store/actions/authAction";
 import { useSelector, useDispatch } from "react-redux";
+import { MdShoppingBasket } from "react-icons/md";
+import { BiUser } from "react-icons/bi";
+import Order from "./Order";
 
 function Navbar() {
   const history = useHistory();
   const dispatch = useDispatch();
+
   const HandleLogout = () => {
     dispatch(logoutUserAction());
     history.push("/");
   };
+
   return (
     <>
       {/* Logo or brand  */}
@@ -33,7 +38,24 @@ function Navbar() {
         <div className='navbar-menu is-active'>
           <div className='navbar-end'>
             <div className='buttons'>
-              <Link onClick={HandleLogout} className='button is-primary'>
+              <Link to='/order'>
+                <span className='icon-text has-text-info mr-4'>
+                  <span class='icon '>
+                    <MdShoppingBasket class='fas fa-info-circle' />
+                  </span>
+                  <span>Basket</span>
+                </span>
+              </Link>
+              <Link to='/user'>
+                <span className='icon-text has-text-success mr-4'>
+                  <span class='icon '>
+                    <BiUser class='fas fa-info-circle' />
+                  </span>
+                  <span>Profile</span>
+                </span>
+              </Link>
+
+              <Link onClick={HandleLogout} className='button is-primary mr-4'>
                 <span>Logout</span>
               </Link>
             </div>
