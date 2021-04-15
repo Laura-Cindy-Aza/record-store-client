@@ -10,11 +10,20 @@ import {
 
 const Cart = () => {
   return (
-    //   Top part
-    <div className="container">
-          <header className="columns header"></header>
-          <div class=""></div>
-    </div>
+    <main>
+      <h1 style={{ marginTop: "1rem" }}>Your Shoping Cart</h1>
+      {/* <div>{renderCartItems} </div> */}
+      <h3>TOTAL</h3>
+
+      <div>
+        <h4 style={{ margin: "0 auto" }}>
+          {/* {totalPrice > 0 ? totalPrice : null}{"€"} */}
+        </h4>
+        <div>
+          <button>Check out</button>
+        </div>
+      </div>
+    </main>
   );
 };
 

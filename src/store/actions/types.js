@@ -1,7 +1,6 @@
 // Records
 export const GET_RECORDS = "GET_RECORDS";
 
-
 // Users
 export const GET_USERS = "GET_USERS";
 
@@ -13,6 +12,7 @@ export const USER_LOGIN_FAILED = "USER_LOGIN_FAILED";
 
 export const LOGOUT_USER = "LOGOUT_USER";
 
+export const EDIT_USER = "EDIT_USER";
 
 // Cart
 export const ADD_TO_CART = "ADD_TO_CART";

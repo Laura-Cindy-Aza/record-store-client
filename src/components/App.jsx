@@ -19,9 +19,9 @@ function App() {
         <Route exact path='/' component={LandingPage} />
         {isAuth && <Route path='/dashboard' component={Dashboard} />}
         <Route path='/login' component={Login} />
-        <Route path='/SignUp' component={SignUp} />
+        <Route path='/signUp' component={SignUp} />
         <Route path='/user' component={User} />
-        <Route path='/UserProfile' component={UserProfile} />
+        <Route path='/userProfile' component={UserProfile} />
         <Route path='/notValid' component={notValid} />
         <Route path='/cart' component={Cart} />
         <Route path='/*' component={notValid} />

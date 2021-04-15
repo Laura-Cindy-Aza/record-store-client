@@ -1,6 +1,6 @@
 // import { helpFetchUsers } from "../helpers";
-import { helpAddUser } from "../helpers";
-import { ADD_USER } from "./types";
+import { helpAddUser, helpEditUser } from "../helpers";
+import { ADD_USER, EDIT_USER } from "./types";
 
 // export const getUsersAction = () => async (dispatch) => {
 //   const response = await helpFetchUsers();
@@ -15,6 +15,14 @@ export const addUserAction = (formData) => async (dispatch) => {
   const response = await helpAddUser(formData);
   dispatch({
     type: ADD_USER,
+    payload: response.data,
+  });
+};
+
+export const editUserAction = (formData) => async (dispatch) => {
+  const response = await helpEditUser(formData);
+  dispatch({
+    type: EDIT_USER,
     payload: response.data,
   });
 };
