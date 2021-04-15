@@ -6,7 +6,7 @@ import { logoutUserAction } from "../store/actions/authAction";
 import { useSelector, useDispatch } from "react-redux";
 import { MdShoppingBasket } from "react-icons/md";
 import { BiUser } from "react-icons/bi";
-import Order from "./Order";
+import Cart from "./Cart";
 
 function Navbar() {
   const history = useHistory();
@@ -38,7 +38,7 @@ function Navbar() {
         <div className='navbar-menu is-active'>
           <div className='navbar-end'>
             <div className='buttons'>
-              <Link to='/order'>
+              <Link to='/cart'>
                 <span className='icon-text has-text-info mr-4'>
                   <span class='icon '>
                     <MdShoppingBasket class='fas fa-info-circle' />
