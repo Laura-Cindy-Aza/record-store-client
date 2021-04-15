@@ -9,8 +9,7 @@ import User from "./User";
 import UserProfile from "./UserProfile";
 import notValid from "./notValid";
 import { useSelector } from "react-redux";
-
-import Order from "./Order";
+import Cart from "./Cart";
 
 function App() {
   const isAuth = useSelector((state) => state.authFromReducer.isAuth);
@@ -24,8 +23,7 @@ function App() {
         <Route path='/user' component={User} />
         <Route path='/UserProfile' component={UserProfile} />
         <Route path='/notValid' component={notValid} />
-        <Route path='/order' component={Order} />
-
+        <Route path='/cart' component={Cart} />
         <Route path='/*' component={notValid} />
       </Switch>
     </>
