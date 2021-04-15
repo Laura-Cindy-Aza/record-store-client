@@ -9,8 +9,7 @@ import User from "./User";
 import UserProfile from "./UserProfile";
 import notValid from "./notValid";
 import { useSelector } from "react-redux";
-import Homepage from "./Homepage";
-import RecordInfo from "./RecordInfo";
+
 import Order from "./Order";
 
 function App() {
@@ -26,8 +25,7 @@ function App() {
         <Route path='/UserProfile' component={UserProfile} />
         <Route path='/notValid' component={notValid} />
         <Route path='/order' component={Order} />
-        <Route path='/Homepage' component={Homepage} />
-        <Route path='/RecordInfo' component={RecordInfo} />
+
         <Route path='/*' component={notValid} />
       </Switch>
     </>
