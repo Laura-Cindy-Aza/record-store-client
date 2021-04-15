@@ -1,5 +1,5 @@
-import { helpCheckUSer } from "../helpers";
-import { USER_LOGIN, USER_LOGIN_FAILED } from "./types";
+import { helpCheckoutUser, helpCheckUSer } from "../helpers";
+import { USER_LOGIN, USER_LOGIN_FAILED, LOGOUT_USER } from "./types";
 
 export const userLoginAction = (formData) => async (dispatch) => {
   const response = await helpCheckUSer(formData);
@@ -15,4 +15,13 @@ export const userLoginAction = (formData) => async (dispatch) => {
       payload: response.data.msg,
     });
   }
+};
+
+export const logoutUserAction = () => async (dispatch) => {
+  const response = await helpCheckoutUser();
+  localStorage.removeItem("auth-data");
+  dispatch({
+    type: LOGOUT_USER,
+    payload: response.data,
+  });
 };

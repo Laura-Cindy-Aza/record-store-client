@@ -31,3 +31,11 @@ export const helpCheckUSer = async (formData) => {
 
   return res;
 };
+
+export const helpCheckoutUser = async () => {
+  const res = await axios.get("http://localhost:5000/users/logout");
+
+  console.log("res", res);
+
+  return res;
+};
