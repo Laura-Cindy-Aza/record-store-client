@@ -39,3 +39,11 @@ export const helpCheckoutUser = async () => {
 
   return res;
 };
+
+export const helpEditUser = async (userId) => {
+  const res = await axios.patch("http://localhost:5000/users/:id");
+
+  console.log("res", res);
+
+  return res;
+};
