@@ -9,7 +9,6 @@ import Lady from "../assets/lady-headphones.jpg";
 import Navbar from "./Navbar";
 
 function Login() {
-  const isAuth = useSelector((state) => state.authFromReducer.isAuth);
   const errorMsg = useSelector((state) => state.authFromReducer.errorMsg);
   const dispatch = useDispatch();
 
@@ -46,8 +45,8 @@ function Login() {
     event.preventDefault();
 
     dispatch(userLoginAction(formData));
+    history.push("/dashboard");
   };
-  if (isAuth) return <Redirect to='/dashboard' />;
 
   //Rendering part!!!!
 
@@ -83,9 +82,7 @@ function Login() {
                     onChange={changeHandler}
                   />
                 </div>
-                {!isAuth && errorMsg && (
-                  <p className='has-text-danger'>{errorMsg}</p>
-                )}
+                {errorMsg && <p className='has-text-danger'>{errorMsg}</p>}
                 <div className='is-flex is-centered'>
                   <button className=' button is-primary is-block  is-fullwidth mt-4'>
                     Log in

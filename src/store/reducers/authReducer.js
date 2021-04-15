@@ -1,6 +1,5 @@
 import { USER_LOGIN, USER_LOGIN_FAILED, LOGOUT_USER } from "../actions/types";
 const initialState = {
-  isAuth: false,
   user: {},
   errorMsg: "",
 };
@@ -14,7 +13,7 @@ const authenticationReducer = (state = initialState, action) => {
           ...state.user,
           ...action.payload,
         },
-        isAuth: true,
+
         errorMsg: "",
       };
 
@@ -35,7 +34,7 @@ const authenticationReducer = (state = initialState, action) => {
           ...state.user,
           ...action.payload,
         },
-        isAuth: false,
+
         errorMsg: "",
       };
 
