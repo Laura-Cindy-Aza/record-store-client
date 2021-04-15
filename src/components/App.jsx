@@ -10,17 +10,19 @@ import UserProfile from "./UserProfile";
 import notValid from "./notValid";
 import { useSelector } from "react-redux";
 import Cart from "./Cart";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
-  const isAuth = useSelector((state) => state.authFromReducer.isAuth);
   return (
     <>
       <Switch>
+        <PrivateRoute exact path='/dashboard' component={Dashboard} />
+        <PrivateRoute exact path='/user' component={User} />
         <Route exact path='/' component={LandingPage} />
-        {isAuth && <Route path='/dashboard' component={Dashboard} />}
+        <Route path='/dashboard' component={Dashboard} />
         <Route path='/login' component={Login} />
         <Route path='/signUp' component={SignUp} />
-        <Route path='/user' component={User} />
+        {/* <Route path='/user' component={User} /> */}
         <Route path='/userProfile' component={UserProfile} />
         <Route path='/notValid' component={notValid} />
         <Route path='/cart' component={Cart} />
