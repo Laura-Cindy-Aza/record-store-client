@@ -3,6 +3,7 @@ import {
   INCREASE_QUANTITY,
   ADD_TO_CART,
   REMOVE_FROM_CART,
+  EMPTY_CART,
 } from "./types";
 
 export const addToCart = (item) => {
@@ -32,3 +33,10 @@ export const decreaseQuantity = (productId) => {
     payload: productId,
   };
 };
+
+export const emptyCart = ()=>{
+  return {
+    type: EMPTY_CART,
+
+  }
+}
