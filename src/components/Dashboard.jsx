@@ -4,6 +4,7 @@ import { getRecordsAction } from "../store/actions/recordsAction";
 import Avatar from "react-avatar";
 import Dashbar from "./Dashbar";
 import { MdAdd } from "react-icons/md";
+import { addToCart } from "../store/actions/cartAction";
 
 function Dashboard() {
   const dispatch = useDispatch();
@@ -15,6 +16,10 @@ function Dashboard() {
   const recordsData = useSelector((state) => {
     return state.recordsFromReducer.records;
   });
+
+  const handleAddRecord = (item) => {
+    dispatch(addToCart(item));
+  };
 
   return (
     <>
@@ -41,7 +46,7 @@ function Dashboard() {
               </div>
               <div className='is-flex is-centered'>
                 <p className='content has-text-info'>Price: {record.price} €</p>
-                <button className='button is-light ' onClick='{ } '>
+                <button className='button is-light ' onClick={handleAddRecord}>
                   <MdAdd />
                 </button>
               </div>

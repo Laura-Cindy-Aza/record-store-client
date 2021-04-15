@@ -2,16 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import { Redirect, useHistory, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userLoginAction } from "../store/actions/authAction";
-import Lady from "../assets/lady-headphones.jpg";
-import Guy1 from "../assets/guy";
-import Guy2 from "../assets/guy2";
-import Guy3 from "../assets/guy3";
-import Lady1 from "../assets/lady";
-import Lady2 from "../assets/lady2";
-import Lady3 from "../assets/lady3";
-
 import { editUserAction } from "../store/actions/usersAction";
 import Dashbar from "./Dashbar";
+import Lady from "../assets/lady-headphones.jpg";
+import Guy1 from "../assets/avatars/guy.jpg";
+import Guy2 from "../assets/avatars/guy2.jpg";
+import Guy3 from "../assets/avatars/guy3.jpg";
+import Lady1 from "../assets/avatars/lady1.jpg";
+import Lady2 from "../assets/avatars/lady2.jpg";
+import Lady3 from "../assets/avatars/lady3.jpg";
 
 // import { useForm } from "react-hook-form";
 
@@ -162,42 +161,50 @@ function User() {
 
           {/* end of last p  */}
 
-          {/* start of second column  */}
+          {/*start of second column  */}
           <div className='column is-half mt-6'>
             <div className='card '>
-              <figure className='image is-128x128'>
+              <figure className='image is-128x128 m-4'>
                 <img className='is-rounded' src={Lady} alt='lady' />
               </figure>
               <div className='tile is-ancestor'>
-                <div className='tile'>
-                  <figure className='image is-128x128'>
-                    <img className='is-rounded' src={Guy1} alt='lady' />
-                  </figure>
+                <div className='tile  is-horizontal'>
+                  <div className='tile is-12 is-horizontal'>
+                    <div className='tile is-4'>
+                      <figure className='image is-128x128 ml-4'>
+                        <img className='is-rounded' src={Guy1} alt='lady' />
+                      </figure>
+                    </div>
+                    <div className='tile is-4'>
+                      <figure className='image is-128x128 ml-4'>
+                        <img className='is-rounded' src={Guy2} alt='lady' />
+                      </figure>
+                    </div>
+                    <div className='tile is-4'>
+                      <figure className='image is-128x128 ml-4'>
+                        <img className='is-rounded' src={Guy3} alt='lady' />
+                      </figure>
+                    </div>
+                  </div>
                 </div>
-                <div className='tile'>
-                  <figure className='image is-128x128'>
-                    <img className='is-rounded' src={Lady1} alt='lady' />
-                  </figure>
-                </div>
-                <div className='tile'>
-                  <figure className='image is-128x128'>
-                    <img className='is-rounded' src={Guy2} alt='lady' />
-                  </figure>
-                </div>
-                <div className='tile'>
-                  <figure className='image is-128x128'>
-                    <img className='is-rounded' src={Lady2} alt='lady' />
-                  </figure>
-                </div>
-                <div className='tile'>
-                  <figure className='image is-128x128'>
-                    <img className='is-rounded' src={Guy3} alt='lady' />
-                  </figure>
-                </div>
-                <div className='tile'>
-                  <figure className='image is-128x128'>
-                    <img className='is-rounded' src={Lady3} alt='lady' />
-                  </figure>
+                <div className='tile  is-horizontal'>
+                  <div className='tile is-12 is-horizontal'>
+                    <div className='tile is-4'>
+                      <figure className='image is-128x128 ml-4'>
+                        <img className='is-rounded' src={Lady1} alt='lady' />
+                      </figure>
+                    </div>
+                    <div className='tile is-4'>
+                      <figure className='image is-128x128 ml-4'>
+                        <img className='is-rounded' src={Lady2} alt='lady' />
+                      </figure>
+                    </div>
+                    <div className='tile is-4'>
+                      <figure className='image is-128x128 ml-4'>
+                        <img className='is-rounded' src={Lady3} alt='lady' />
+                      </figure>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
