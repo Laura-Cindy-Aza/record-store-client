@@ -11,6 +11,9 @@ import Cart from "./Cart";
 function Navbar() {
   const history = useHistory();
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => {
+    return state.cartFromReducer.cartItems;
+  });
 
   const HandleLogout = () => {
     dispatch(logoutUserAction());
@@ -44,6 +47,9 @@ function Navbar() {
                     <MdShoppingBasket class='fas fa-info-circle' />
                   </span>
                   <span>Basket</span>
+                  <span title='Badge top right' className='badge'>
+                    ({cartItems.length})
+                  </span>
                 </span>
               </Link>
               <Link to='/user'>
