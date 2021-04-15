@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import { Card, Container, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   decreaseQuantity,
   increaseQuantity,
   removeFromCart,
-} from "../store/actions/cartActions";
+} from "../store/actions/cartAction";
 import { useDispatch } from "react-redux";
 
 const Cart = () => {
@@ -19,11 +18,11 @@ const Cart = () => {
 
   const cartItems = useSelector((state) => state.cartReducer.cartItems);
 
-  const renderCartItems = cartItems.map((beer, index) => (
+  const renderCartItems = cartItems.map((record, index) => (
     <Container className='d-flex align-items-center flex-wrap'>
       <Card
         key={index}
-        className='beer-card d-flex align-items-center flex-nowrap'
+        className='record-card d-flex align-items-center flex-nowrap'
         style={{
           minHeight: "15rem",
           width: "15rem",
@@ -35,10 +34,10 @@ const Cart = () => {
             paddingTop: "1rem",
           }}
           variant='top'
-          src={beer.image_url}
+          src={record.image_url}
         />
         <Card.Body>
-          <Card.Title>{beer.name}</Card.Title>
+          <Card.Title>{record.name}</Card.Title>
 
           <span
             style={{
@@ -47,7 +46,7 @@ const Cart = () => {
               fontWeight: "600",
               textAlign: "center",
             }}>
-            {beer.price + "€"}
+            {record.price + "€"}
             {"/u. "}
           </span>
         </Card.Body>
@@ -57,19 +56,19 @@ const Cart = () => {
               margin: "0 auto",
             }}>
             <Button
-              onClick={() => dispatch(increaseQuantity(beer.id))}
+              onClick={() => dispatch(increaseQuantity(record.id))}
               variant='light'>
               +
             </Button>
-            <span>{beer.quantity}X </span>
+            <span>{record.quantity}X </span>
             <Button
-              onClick={() => dispatch(decreaseQuantity(beer.id))}
+              onClick={() => dispatch(decreaseQuantity(record.id))}
               variant='light'>
               -
             </Button>
           </div>
           <Button
-            onClick={() => dispatch(removeFromCart(beer.id))}
+            onClick={() => dispatch(removeFromCart(record.id))}
             variant='primary'>
             Remove from Cart
           </Button>
@@ -78,7 +77,7 @@ const Cart = () => {
     </Container>
   ));
   const totalPrice = cartItems
-    .map((beer) => parseFloat(beer.price) * parseFloat(beer.quantity))
+    .map((record) => parseFloat(record.price) * parseFloat(record.quantity))
     .reduce((acc, num) => acc + num, 0);
   return (
     <>
@@ -87,7 +86,7 @@ const Cart = () => {
         style={{ minHeight: "100vh" }}>
         <div className='w-100 cart-card' style={{ maxWidth: "900px" }}>
           <Link
-            to='/beerlist'
+            to='/recordlist'
             type='button'
             className='close'
             aria-label='Close'>
