@@ -17,9 +17,9 @@ function Dashboard() {
     return state.recordsFromReducer.records;
   });
 
-  const handleAddRecord = (item) => {
-    dispatch(addToCart(item));
-  };
+  // const handleAddRecord = (record) => {
+  //   dispatch(addToCart(record));
+  // };
 
   return (
     <>
@@ -46,7 +46,9 @@ function Dashboard() {
               </div>
               <div className='is-flex is-centered'>
                 <p className='content has-text-info'>Price: {record.price} €</p>
-                <button className='button is-light ' onClick={handleAddRecord}>
+                <button
+                  className='button is-light '
+                  onClick={() => dispatch(addToCart(record))}>
                   <MdAdd />
                 </button>
               </div>
