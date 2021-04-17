@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import Dashbar from "./Dashbar";
+
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -11,13 +13,14 @@ import {
 const Cart = () => {
   return (
     <>
+      <Dashbar />
       <div className='container'>
         <header className='columns header'>
           <div className='column logo-text'>
             <h1>Shopping Cart</h1>
           </div>
           <div className='column user-info'>
-            <img src='../assets/avatars/guy.jpg' alt='profilepic' />
+            <img src='./images/avatars/guy.jpg' alt='profilepic' />
             <div className='dropdown is-hoverable'>
               <div className='dropdown-trigger'>
                 "Logged in as "
