@@ -61,7 +61,7 @@ const Cart = () => {
                   <p>Type here your discount code. Multiple vouchers cannot be applied. </p>
                   <div className="field has-addons">
                     <div className="control">
-                      <input className="input" type="text"> </input>
+                      {/* <input className="input" type="text"> </input> */}
                     </div>
                     <div className="control">
                       <button className="btn is-link primary">Redeem</button>
