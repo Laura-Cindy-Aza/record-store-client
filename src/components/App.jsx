@@ -9,8 +9,8 @@ import User from "./User";
 import UserProfile from "./UserProfile";
 import notValid from "./notValid";
 import { useSelector } from "react-redux";
-import Cart from "./Cart";
 import PrivateRoute from "./PrivateRoute";
+import Cart from "./Cart";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
       <Switch>
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <PrivateRoute exact path='/user' component={User} />
+        <PrivateRoute path='/cart' component={Cart} />
         <Route exact path='/' component={LandingPage} />
         <Route path='/dashboard' component={Dashboard} />
         <Route path='/login' component={Login} />
@@ -25,7 +26,6 @@ function App() {
         {/* <Route path='/user' component={User} /> */}
         <Route path='/userProfile' component={UserProfile} />
         <Route path='/notValid' component={notValid} />
-        <Route path='/cart' component={Cart} />
         <Route path='/*' component={notValid} />
       </Switch>
     </>

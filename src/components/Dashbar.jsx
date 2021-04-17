@@ -62,7 +62,7 @@ function Navbar() {
                   <span class='icon '>
                     <MdShoppingBasket class='fas fa-info-circle' />
                   </span>
-                  <span>Basket</span>
+                  <span>Cart</span>
                   <span title='Badge top right' className='badge'>
                     ({cartItems.length})
                   </span>
