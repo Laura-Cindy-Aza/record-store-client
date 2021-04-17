@@ -45,9 +45,9 @@ function User() {
       <div className='container is-fluid'>
         <p className='is-size-2'>User Profile update</p>
         <div className='columns'>
-          <div className='column is-half '>
+          <div className='column  is-vcentered '>
             {/* start of inputs  */}
-            <div className='column is-half is-centered '>
+            <div className='column is-half'>
               <div className='control mt-3'>
                 <div className='field'>
                   <label className='label'>First Name</label>
@@ -131,7 +131,7 @@ function User() {
           {/*start of second column  */}
           <div className='column is-half mt-6  is-fluid'>
             <div className='card p-6'>
-              <p className='is-size-2'>Choose your avatar</p>
+              <p className='is-size-3'>Choose your avatar</p>
               <figure className='image is-128x128 m-4 '>
                 <img
                   className='is-rounded'
