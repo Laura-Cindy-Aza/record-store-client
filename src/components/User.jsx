@@ -45,9 +45,9 @@ function User() {
       <div className='container is-fluid'>
         <p className='is-size-2'>User Profile update</p>
         <div className='columns'>
-          <div className='column is-half'>
+          <div className='column is-half '>
             {/* start of inputs  */}
-            <div className='column is-half '>
+            <div className='column is-half is-centered '>
               <div className='control mt-3'>
                 <div className='field'>
                   <label className='label'>First Name</label>
