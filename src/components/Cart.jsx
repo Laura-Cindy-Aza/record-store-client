@@ -20,7 +20,7 @@ const Cart = () => {
             <h1>Shopping Cart</h1>
           </div>
           <div className='column user-info'>
-            <img src='../assets/avatars/guy.jpg' alt='profilepic' />
+            <img src='./images/avatars/guy.jpg' alt='profilepic' />
             <div className='dropdown is-hoverable'>
               <div className='dropdown-trigger'>
                 "Logged in as "
