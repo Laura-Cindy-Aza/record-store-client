@@ -64,12 +64,6 @@ const Cart = () => {
               <section className='columns checkout'>
                 <div className='column discount'>
                   <h2>Discount Code or Voucher</h2>
-<<<<<<< HEAD
-                  <p>Type here your discount code. Multiple vouchers cannot be applied. </p>
-                  <div className="field has-addons">
-                    <div className="control">
-                      {/* <input className="input" type="text"> </input> */}
-=======
                   <p>
                     Type here your discount code. Multiple vouchers cannot be
                     applied.{" "}
@@ -77,7 +71,6 @@ const Cart = () => {
                   <div className='field has-addons'>
                     <div className='control'>
                       <input className='input' type='text'></input>
->>>>>>> c5cf0bb8a63f843147932ef2552a58edde24cb04
                     </div>
                     <div className='control'>
                       <button className='btn is-link primary'>Redeem</button>
