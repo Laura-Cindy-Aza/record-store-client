@@ -1,49 +1,26 @@
 import axios from "axios";
 
-export const helpFetchRecords = async () => {
-  console.log("Helper RECORDS running!!");
-  const res = await axios.get("http://localhost:5000/records");
-  console.log("res", res);
-  return res;
-};
+// get records from API endpoint
 
-export const helpAddUser = async (formData) => {
-  const stringifiedData = JSON.stringify(formData);
-  console.log("Helper ADD_USER works!");
-  const res = await axios.post("http://localhost:5000/users", stringifiedData, {
-    headers: { "Content-Type": "application/json" },
-  });
-  console.log("res", res);
+export const helpFetchRecords = () =>
+  axios.get("http://localhost:5000/records");
 
-  return res;
-};
+// signup user
 
-export const helpCheckUSer = async (formData) => {
-  const stringifiedData = JSON.stringify(formData);
+export const helpAddUser = (formData) =>
+  axios.post("http://localhost:5000/users", formData);
 
-  const res = await axios.post(
-    "http://localhost:5000/users/login",
-    stringifiedData,
-    { headers: { "Content-Type": "application/json" } }
-  );
+// login user authentication
 
-  console.log("res", res);
+export const helpCheckUSer = (formData) =>
+  axios.post("http://localhost:5000/users/login", formData);
 
-  return res;
-};
+// logout user
 
-export const helpCheckoutUser = async () => {
-  const res = await axios.get("http://localhost:5000/users/logout");
+export const helpCheckoutUser = () =>
+  axios.get("http://localhost:5000/users/logout");
 
-  console.log("res", res);
+// edit user data
 
-  return res;
-};
-
-export const helpEditUser = async (userId) => {
-  const res = await axios.patch("http://localhost:5000/users/:id");
-
-  console.log("res", res);
-
-  return res;
-};
+export const helpEditUser = async (id, updatedUser) =>
+  axios.patch(`http://localhost:5000/users/:${id}`, updatedUser);

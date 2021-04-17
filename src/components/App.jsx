@@ -16,13 +16,13 @@ function App() {
   return (
     <>
       <Switch>
+        <Route exact path='/' component={LandingPage} />
+        <Route path='/login' component={Login} />
+        <Route path='/signUp' component={SignUp} />
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <PrivateRoute exact path='/user' component={User} />
         <PrivateRoute path='/cart' component={Cart} />
-        <Route exact path='/' component={LandingPage} />
-        <Route path='/dashboard' component={Dashboard} />
-        <Route path='/login' component={Login} />
-        <Route path='/signUp' component={SignUp} />
+        {/* <Route path='/dashboard' component={Dashboard} /> */}
         {/* <Route path='/user' component={User} /> */}
         <Route path='/userProfile' component={UserProfile} />
         <Route path='/notValid' component={notValid} />
