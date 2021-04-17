@@ -1,4 +1,4 @@
-import { ADD_USER, GET_USERS, EDIT_USER } from "../actions/types";
+import { ADD_USER, EDIT_USER } from "../actions/types";
 
 // a reducer is a function that takes 2 parameters (initialState, action) and returns a copy of the state to the store
 // every reducer needs:

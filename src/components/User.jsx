@@ -1,27 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Redirect, useHistory, Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userLoginAction } from "../store/actions/authAction";
 import { editUserAction } from "../store/actions/usersAction";
 import Dashbar from "./Dashbar";
-import Lady from "../assets/lady-headphones.jpg";
-import Guy1 from "../assets/avatars/guy.jpg";
-import Guy2 from "../assets/avatars/guy2.jpg";
-import Guy3 from "../assets/avatars/guy3.jpg";
-import Lady1 from "../assets/avatars/lady1.jpg";
-import Lady2 from "../assets/avatars/lady2.jpg";
-import Lady3 from "../assets/avatars/lady3.jpg";
-
-// import { useForm } from "react-hook-form";
 
 function User() {
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getUsersAction());
-  // }, []);
+  const user = useSelector((state) => state.authFromReducer.user);
 
   // to go back
+
   const history = useHistory();
 
   // get user data
@@ -33,6 +22,7 @@ function User() {
     email: "",
   });
   const [redirect, setRedirect] = useState("");
+  const [avatar, setAvatar] = useState("/images/guy4.jpg");
 
   const inputRef = useRef();
 
@@ -47,7 +37,6 @@ function User() {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(editUserAction(formData));
-    dispatch(userLoginAction(formData));
   };
 
   return (
@@ -56,9 +45,9 @@ function User() {
       <div className='container is-fluid'>
         <p className='is-size-2'>User Profile update</p>
         <div className='columns'>
-          <div className='column is-half'>
+          <div className='column is-half '>
             {/* start of inputs  */}
-            <div className='column is-half '>
+            <div className='column is-half is-centered '>
               <div className='control mt-3'>
                 <div className='field'>
                   <label className='label'>First Name</label>
@@ -139,50 +128,55 @@ function User() {
             </div>
           </div>
 
-          {/* <div className='control mt-3'>
-              <div className='field'>
-                <label className='label'>Confirm Password</label>
-                <div className='control'>
-                  <input
-                    className='input is-small'
-                    type='password'
-                    name='confirmPassword'
-                    // value={formData.password}
-                    required
-                    onChange={changeHandler}
-                  />
-                </div>
-              </div>
-            </div> */}
-
-          {/* end of inputs */}
-
-          {/* start of last p  */}
-
-          {/* end of last p  */}
-
           {/*start of second column  */}
-          <div className='column is-half mt-6'>
-            <div className='card '>
-              <figure className='image is-128x128 m-4'>
-                <img className='is-rounded' src={Lady} alt='lady' />
+          <div className='column is-half mt-6  is-fluid'>
+            <div className='card p-6'>
+              <p className='is-size-2'>Choose your avatar</p>
+              <figure className='image is-128x128 m-4 '>
+                <img
+                  className='is-rounded'
+                  src={avatar}
+                  alt='lady'
+                  style={{ border: "5px solid" }}
+                />
               </figure>
-              <div className='tile is-ancestor'>
+              <div className='tile is-ancestor p-4'>
                 <div className='tile  is-horizontal'>
                   <div className='tile is-12 is-horizontal'>
                     <div className='tile is-4'>
-                      <figure className='image is-128x128 ml-4'>
-                        <img className='is-rounded' src={Guy1} alt='lady' />
+                      <figure
+                        name='Guy1'
+                        className='image is-128x128 ml-4 is-clickable'
+                        onClick={(e) => setAvatar(e.target.src)}>
+                        <img
+                          className='is-rounded'
+                          src='/images/guy1.jpg'
+                          alt='lady'
+                        />
                       </figure>
                     </div>
                     <div className='tile is-4'>
-                      <figure className='image is-128x128 ml-4'>
-                        <img className='is-rounded' src={Guy2} alt='lady' />
+                      <figure
+                        name='Guy2'
+                        className='image is-128x128 ml-4 is-clickable'
+                        onClick={(e) => setAvatar(e.target.src)}>
+                        <img
+                          className='is-rounded'
+                          src='/images/guy2.jpg'
+                          alt='lady'
+                        />
                       </figure>
                     </div>
                     <div className='tile is-4'>
-                      <figure className='image is-128x128 ml-4'>
-                        <img className='is-rounded' src={Guy3} alt='lady' />
+                      <figure
+                        name='Guy3'
+                        className='image is-128x128 ml-4 is-clickable'
+                        onClick={(e) => setAvatar(e.target.src)}>
+                        <img
+                          className='is-rounded'
+                          src='/images/guy3.jpg'
+                          alt='lady'
+                        />
                       </figure>
                     </div>
                   </div>
@@ -190,18 +184,39 @@ function User() {
                 <div className='tile  is-horizontal'>
                   <div className='tile is-12 is-horizontal'>
                     <div className='tile is-4'>
-                      <figure className='image is-128x128 ml-4'>
-                        <img className='is-rounded' src={Lady1} alt='lady' />
+                      <figure
+                        name='Lady1'
+                        className='image is-128x128 ml-4 is-clickable'
+                        onClick={(e) => setAvatar(e.target.src)}>
+                        <img
+                          className='is-rounded'
+                          src='/images/lady1.jpg'
+                          alt='lady'
+                        />
                       </figure>
                     </div>
                     <div className='tile is-4'>
-                      <figure className='image is-128x128 ml-4'>
-                        <img className='is-rounded' src={Lady2} alt='lady' />
+                      <figure
+                        name='Lady2'
+                        className='image is-128x128 ml-4 is-clickable'
+                        onClick={(e) => setAvatar(e.target.src)}>
+                        <img
+                          className='is-rounded'
+                          src='/images/lady2.jpg'
+                          alt='lady'
+                        />
                       </figure>
                     </div>
                     <div className='tile is-4'>
-                      <figure className='image is-128x128 ml-4'>
-                        <img className='is-rounded' src={Lady3} alt='lady' />
+                      <figure
+                        name='Lady3'
+                        className='image is-128x128 ml-4 is-clickable'
+                        onClick={(e) => setAvatar(e.target.src)}>
+                        <img
+                          className='is-rounded'
+                          src='/images/lady3.jpg'
+                          alt='lady'
+                        />
                       </figure>
                     </div>
                   </div>
