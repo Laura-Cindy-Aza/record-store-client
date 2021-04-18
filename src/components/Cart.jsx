@@ -20,6 +20,11 @@ const Cart = () => {
 
   const cartItems = useSelector((state) => state.cartFromReducer.cartItems);
 
+  const totalPrice = cartItems
+    .map((record) => parseFloat(record.price) * parseFloat(record.quantity))
+    .reduce((acc, num) => acc + num, 0);
+
+
 
 
 
@@ -37,36 +42,37 @@ const Cart = () => {
           <div className='column'>Description</div>
           <div className='column'>Quantity</div>
           <div className='column'>Price</div>
-          <div className='column'>Total</div>
+          <div className='column'>Subtotal</div>
         </div>
 
         {/* card records info */}
         <div id='shopping-cart'>
           <div>
-            <div className='columns product-row'>
+            <div key={index} className='columns product-row'>
               <div className='column product-image'>
                 <figure>
                 <img src={record.cover} alt="cover"/>
                 </figure>
               </div>
 
-              <div className='column is-half'>
+              <div className='column'>
                 <p>{record.title}</p>
                 <p>{record.artist}</p>
               </div>
 
               <div className='column center-container'>
-                <span className='mobile-table-heading'>Quantity </span>
-                <input className='quantity ' id={record.id} type="number" name='quantity' min='0' max='100' value='2'/>
+                <span className='mobile-table-heading'> </span>
+
+                <input className='quantity ' type="number" name='quantity' min='0' max='100' value='1' step='1'/>
               </div>
 
               <div className='column center-container'>
-                <span className='mobile-table-heading'>Price € {record.price}</span>
+                <span className='mobile-table-heading'> € {record.price}</span>
               </div>
 
 
               <div className='column center-container'>
-              <span className='mobile-table-heading'>Price € {record.price}</span>
+              <span className='mobile-table-heading'> € {totalPrice}</span>
               </div>
             </div>
           </div>
@@ -75,18 +81,19 @@ const Cart = () => {
 
 
           <div className='column submit-form'>
-            <div className='total'>
-              <span className='total'>
-                Total ${record.price}
-              </span>
-            </div>
+
 
             <div className='field is-grouped'>
+
               <p className='control'>
+                <Link to='/dashboard'>
                 <button className='button is-dark'>Back to Shop</button>
+                </Link>
               </p>
               <p className='control'>
+                <Link to='/checkout'>
                 <button className='button is-link'>Continue to checkout</button>
+                </Link>
               </p>
             </div>
           </div>
@@ -102,15 +109,13 @@ const Cart = () => {
       </div>
     </div>
   ));
-  const totalPrice = cartItems
-    .map((record) => parseFloat(record.price) * parseFloat(record.quantity))
-    .reduce((acc, num) => acc + num, 0);
+
 
 
   return (
     <>
        <div className='container is-fluid is-mobile'>
-        <p className='is-size-2'>This is your cart</p>
+        <p className='is-size-2 mb-2'>Enjoy your music! 🎵 </p>
         <div className='columns'>
             {/* start of inputs  */}
             <div className='column is-half is-vcentered  '>
@@ -121,6 +126,7 @@ const Cart = () => {
               </div>
 
               <div className='is-flex is-centered'>
+                <Link to='/dashboard'>
                 <button
                   className=' button is-primary  mt-5'
                   //onClick={submitHandler}
@@ -129,6 +135,7 @@ const Cart = () => {
                 {redirect === "wrong" && (
                   <p className='has-text-danger'>You flipped! Try again</p>
                 )}
+                </Link>
               </div>
           </div>
 
@@ -149,11 +156,14 @@ const Cart = () => {
 
               <div className='media-content has-text-centered	 '>
                 <p className='title is-4'>Order Total </p>
-                <p className='title is-2'> 55{totalPrice > 0 ? totalPrice : null}
+                <p className='title is-2'> {totalPrice}
                 {"€"}
 
                 </p>
+
+                <Link to='checkout'>
               <button className='button is-primary mb-2'>Go to Checkout!</button>
+                </Link>
 
               <p className="has-text-black" id="hover">Place your order now and get a
               <span className="tag is-danger"> Michi </span> for free!</p>
