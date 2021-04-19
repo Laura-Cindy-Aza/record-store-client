@@ -30,10 +30,32 @@
   margin: 30px 40px;
   cursor: pointer;
 }
+<<<<<<< HEAD
 
 /* .logo-container {
   justify-content: center;
 } */
 .logo-landing {
   max-width: 33%;
+=======
+.with-border {
+  border: 2px solid turquoise;
+  box-shadow: 0px -1px 2px 3px #8affe4;
+}
+.is-flex {
+  justify-content: center;
+}
+.quantity {
+  width: 95%;
+}
+.products-table {
+  overflow-x: auto;
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  /* soluciones modernas para problemas modernos jaja  */
+  .table-header {
+    display: none;
+  }
+>>>>>>> 2920c569c4bd13490e3cb56fa06ddaf31126967d
 }
