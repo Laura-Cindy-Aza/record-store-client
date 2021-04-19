@@ -20,17 +20,16 @@ const Cart = () => {
 
   const cartItems = useSelector((state) => state.cartFromReducer.cartItems);
 
-  const totalPrice = cartItems
-    .map((record) => parseFloat(record.price) * parseFloat(record.quantity))
-    .reduce((acc, num) => acc + num, 0);
+  //esta funcion al parecer va bien porque esta sumando los precios de cada record .
+  const Total = cartItems.reduce((acc, record) => {return acc += record.price * record.quantity},  0);
 
+//esta es la funcion que no me esta sumando los precios , sino les esta haciendo "Join"
+  const subTotal = cartItems.map((record)=> {return parseFloat(record.price) * parseFloat(record.quantity)},0)
 
 
 
 
   const renderCartItems = cartItems.map((record, index) => (
-
-
     <div className='columns'>
       <div className='column card '>
 
@@ -61,7 +60,7 @@ const Cart = () => {
               </div>
 
               <div className='column center-container'>
-                <span className='mobile-table-heading'> </span>
+                <span className='mobile-table-heading data-price'> </span>
 
                 <input className='quantity ' type="number" name='quantity' min='0' max='100' value='1' step='1'/>
               </div>
@@ -72,7 +71,7 @@ const Cart = () => {
 
 
               <div className='column center-container'>
-              <span className='mobile-table-heading'> € {totalPrice}</span>
+              <span className='mobile-table-heading'> € {subTotal}</span>
               </div>
             </div>
           </div>
@@ -149,7 +148,7 @@ const Cart = () => {
 
               <div className='media-content has-text-centered	 '>
                 <p className='title is-4'>Order Total </p>
-                <p className='title is-2'> {totalPrice}
+                <p className='title is-2'> {Total}
                 {"€"}
 
                 </p>
