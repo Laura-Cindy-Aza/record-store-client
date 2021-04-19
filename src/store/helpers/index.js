@@ -22,5 +22,5 @@ export const helpCheckoutUser = () =>
 
 // edit user data
 
-export const helpEditUser = async (id, updatedUser) =>
-  axios.patch(`http://localhost:5000/users/:${id}`, updatedUser);
+export const helpEditUser = async (userId, updatedUser) =>
+  axios.patch(`http://localhost:5000/users/${userId}`, updatedUser);

@@ -19,10 +19,13 @@ export const addUserAction = (formData) => async (dispatch) => {
   });
 };
 
-export const editUserAction = (formData) => async (dispatch) => {
-  const response = await helpEditUser(formData);
+export const editUserAction = (formData) => async (dispatch, getState) => {
+  const userId = getState().authFromReducer.user._id;
+  console.log("userId: ", userId);
+  const response = await helpEditUser(userId, formData);
+  console.log("formData from Action");
   dispatch({
     type: EDIT_USER,
-    payload: response.data,
+    payload: response.userId,
   });
 };

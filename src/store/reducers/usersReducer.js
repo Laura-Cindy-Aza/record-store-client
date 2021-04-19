@@ -7,7 +7,6 @@ import { ADD_USER, EDIT_USER } from "../actions/types";
 
 const initialState = {
   user: {},
-  errorMessage: "",
 };
 
 const usersReducer = (state = initialState, action) => {

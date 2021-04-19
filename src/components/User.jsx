@@ -20,9 +20,10 @@ function User() {
     lastName: "",
     nickName: "",
     email: "",
+    avatar: "",
   });
   const [redirect, setRedirect] = useState("");
-  const [avatar, setAvatar] = useState("/images/guy4.jpg");
+  const [avatar, setAvatar] = useState(user.avatar);
 
   const inputRef = useRef();
 
@@ -36,6 +37,8 @@ function User() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    formData.avatar = avatar;
+    console.log("formData from user", formData);
     dispatch(editUserAction(formData));
   };
 
@@ -45,7 +48,7 @@ function User() {
       <div className='container is-fluid'>
         <p className='is-size-2'>User Profile update</p>
         <div className='columns'>
-          <div className='column  is-vcentered '>
+          <div className='column  is-flex is-justify-content-center is-align-content-center '>
             {/* start of inputs  */}
             <div className='column is-half'>
               <div className='control mt-3'>

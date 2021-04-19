@@ -54,7 +54,7 @@ function Signup() {
       <div className='container is-fluid'>
         <p className='is-size-2'>Register to buy last Records!</p>
         <div className='columns'>
-          <div className='column is-half'>
+          <div className='column is-half is-flex is-align-content-center is-justify-content-center	'>
             {/* start of inputs  */}
             <div className='column is-half '>
               <div className='control mt-3'>

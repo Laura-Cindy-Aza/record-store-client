@@ -55,7 +55,7 @@ function Login() {
       <div className='container is-fluid'>
         <div className='columns'>
           <div
-            className='column is-half'
+            className='column is-half is-justify-content-center is-align-content-center'
             style={{ width: "400px", margin: "0 auto", paddingTop: "3rem" }}>
             <p className='is-size-2'>Nice to see you again!</p>
             <form onSubmit={submitHandler} noValidate>
