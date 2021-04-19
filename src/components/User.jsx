@@ -7,7 +7,7 @@ import Dashbar from "./Dashbar";
 
 function User() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.authFromReducer.user);
+  const user = useSelector((state) => state.authUser.user);
 
   // to go back
 

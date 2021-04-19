@@ -20,7 +20,7 @@ export const addUserAction = (formData) => async (dispatch) => {
 };
 
 export const editUserAction = (formData) => async (dispatch, getState) => {
-  const userId = getState().authFromReducer.user._id;
+  const userId = getState().authUser.user._id;
   console.log("userId: ", userId);
   const response = await helpEditUser(userId, formData);
   console.log("formData from Action");

@@ -11,10 +11,10 @@ import Cart from "./Cart";
 function Navbar() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const avatarUser = useSelector((state) => state.authFromReducer.user.avatar);
+  const avatarUser = useSelector((state) => state.authUser.user.avatar);
 
   const cartItems = useSelector((state) => {
-    return state.cartFromReducer.cartItems;
+    return state.cart.cartItems;
   });
 
   const HandleLogout = () => {

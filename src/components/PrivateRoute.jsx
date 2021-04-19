@@ -4,7 +4,7 @@ import { Redirect, Route } from "react-router-dom";
 
 const PrivateRoute = ({ path, component, redirectTo = "/login" }) => {
   // grab the info if user is logged in from context
-  const user = useSelector((state) => state.authFromReducer.user);
+  const user = useSelector((state) => state.authUser.user);
   console.log("====================================");
   console.log(user);
   console.log("====================================");

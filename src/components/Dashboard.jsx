@@ -14,7 +14,7 @@ function Dashboard() {
   }, []);
 
   const recordsData = useSelector((state) => {
-    return state.recordsFromReducer.records;
+    return state.records.records;
   });
 
   // const handleAddRecord = (record) => {

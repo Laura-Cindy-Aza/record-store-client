@@ -5,10 +5,10 @@ import recordsReducer from "./recordsReducer";
 import cartReducer from "./cartReducer";
 
 const allReducers = combineReducers({
-  authFromReducer: authenticationReducer,
-  userFromReducer: usersReducer,
-  recordsFromReducer: recordsReducer,
-  cartFromReducer: cartReducer,
+  authUser: authenticationReducer,
+  user: usersReducer,
+  records: recordsReducer,
+  cart: cartReducer,
 });
 
 export default allReducers;

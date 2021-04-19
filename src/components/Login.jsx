@@ -9,7 +9,7 @@ import Lady from "../assets/lady-headphones.jpg";
 import Navbar from "./Navbar";
 
 function Login() {
-  const errorMsg = useSelector((state) => state.authFromReducer.errorMsg);
+  const errorMsg = useSelector((state) => state.authUser.errorMsg);
   const dispatch = useDispatch();
 
   // useEffect(() => {
