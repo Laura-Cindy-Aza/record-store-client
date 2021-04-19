@@ -80,23 +80,7 @@ const Cart = () => {
         <section className='columns product-row'>
 
 
-          <div className='column submit-form'>
 
-
-            <div className='field is-grouped'>
-
-              <p className='control'>
-                <Link to='/dashboard'>
-                <button className='button is-dark'>Back to Shop</button>
-                </Link>
-              </p>
-              <p className='control'>
-                <Link to='/checkout'>
-                <button className='button is-link'>Continue to checkout</button>
-                </Link>
-              </p>
-            </div>
-          </div>
         </section>
 
 
@@ -125,17 +109,26 @@ const Cart = () => {
                   </div>
               </div>
 
-              <div className='is-flex is-centered'>
-                <Link to='/dashboard'>
-                <button
-                  className=' button is-primary  mt-5'
-                  //onClick={submitHandler}
-                  >Go Back to Dashboard
-                </button>
-                {redirect === "wrong" && (
+
+
+                {/* buttons! */}
+              <div className='column submit-form'>
+                <div className='field is-grouped'>
+
+                  <p className='control'>
+                    <Link to='/dashboard'>
+                      <button className='button is-dark'>Back to Shop</button>
+                    </Link>
+                  </p>
+                  <p className='control'>
+                    <Link to='/checkout'>
+                      <button className='button is-primary'>Go to Checkout </button>
+                      {redirect === "wrong" && (
                   <p className='has-text-danger'>You flipped! Try again</p>
                 )}
-                </Link>
+                    </Link>
+                  </p>
+                </div>
               </div>
           </div>
 
