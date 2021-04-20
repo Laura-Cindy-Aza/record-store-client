@@ -43,7 +43,6 @@ function Login() {
 
   const submitHandler = (event) => {
     event.preventDefault();
-
     dispatch(userLoginAction(formData));
     history.push("/dashboard");
   };
