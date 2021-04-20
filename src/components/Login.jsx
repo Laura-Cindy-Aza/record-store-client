@@ -9,28 +9,15 @@ import Lady from "../assets/lady-headphones.jpg";
 import Navbar from "./Navbar";
 
 function Login() {
-  const errorMsg = useSelector((state) => state.authUser.errorMsg);
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getUsersAction());
-  // }, []);
-  // // get user data
-  // // const usersData = useSelector((state) => {
-  // //   return state.usersFromReducer.users;
-  // // });
 
   // to go back
   const history = useHistory();
 
   // Redux
 
-  // const authenticatedState = useSelector(
-  //   (state) => state.authenticationReducer
-  // );
-
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [redirect, setRedirect] = useState("");
+
   const inputRef = useRef();
 
   useEffect(() => {
@@ -81,7 +68,7 @@ function Login() {
                     onChange={changeHandler}
                   />
                 </div>
-                {errorMsg && <p className='has-text-danger'>{errorMsg}</p>}
+
                 <div className='is-flex is-centered'>
                   <button className=' button is-primary is-block  is-fullwidth mt-4'>
                     Log in

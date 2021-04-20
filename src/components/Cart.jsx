@@ -14,7 +14,6 @@ import {
 } from "../store/actions/cartAction";
 
 const Cart = () => {
-  const [redirect, setRedirect] = useState("");
   const dispatch = useDispatch();
 
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -102,21 +101,13 @@ const Cart = () => {
             {/* buttons! */}
             <div className='column submit-form'>
               <div className='field is-grouped'>
-                <p className='control'>
-                  <Link to='/dashboard'>
-                    <button className='button is-dark'>Back to Shop</button>
-                  </Link>
-                </p>
-                <p className='control'>
-                  <Link to='/checkout'>
-                    <button className='button is-primary'>
-                      Go to Checkout{" "}
-                    </button>
-                    {redirect === "wrong" && (
-                      <p className='has-text-danger'>You flipped! Try again</p>
-                    )}
-                  </Link>
-                </p>
+                <Link to='/dashboard'>
+                  <button className='button is-dark'>Back to Shop</button>
+                </Link>
+
+                <Link to='/checkout'>
+                  <button className='button is-primary'>Go to Checkout </button>
+                </Link>
               </div>
             </div>
           </div>

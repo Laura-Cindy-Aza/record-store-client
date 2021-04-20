@@ -7,7 +7,8 @@ import Dashbar from "./Dashbar";
 
 function User() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.authUser.user);
+  // const authUser = useSelector((state) => state.authUser.user);
+  const user = useSelector((state) => state.user.user);
 
   // to go back
 
@@ -22,7 +23,7 @@ function User() {
     email: "",
     avatar: "",
   });
-  const [redirect, setRedirect] = useState("");
+
   const [avatar, setAvatar] = useState(user.avatar);
 
   const inputRef = useRef();
@@ -38,19 +39,26 @@ function User() {
   const submitHandler = (e) => {
     e.preventDefault();
     formData.avatar = avatar;
-    console.log("formData from user", formData);
-    dispatch(editUserAction(formData));
+    let filteredFields = {};
+    Object.keys(formData).forEach((key) => {
+      if (formData[key].length > 0) {
+        filteredFields[key] = formData[key];
+      }
+    });
+
+    dispatch(editUserAction(filteredFields));
+    history.push("/dashboard");
   };
 
   return (
     <>
       <Dashbar />
       <div className='container is-fluid'>
-        <p className='is-size-2'>User Profile update</p>
         <div className='columns'>
           <div className='column  is-flex is-justify-content-center is-align-content-center '>
             {/* start of inputs  */}
             <div className='column is-half'>
+              <p className='is-size-2'>User Profile update</p>
               <div className='control mt-3'>
                 <div className='field'>
                   <label className='label'>First Name</label>
@@ -124,17 +132,14 @@ function User() {
                   onClick={submitHandler}>
                   Save
                 </button>
-                {redirect === "wrong" && (
-                  <p className='has-text-danger'>You flipped! Try again</p>
-                )}
               </div>
             </div>
           </div>
 
           {/*start of second column  */}
           <div className='column is-half mt-6  is-fluid'>
+            <p className='is-size-3'>Choose your avatar</p>
             <div className='card p-6'>
-              <p className='is-size-3'>Choose your avatar</p>
               <figure className='image is-128x128 m-4 '>
                 <img
                   className='is-rounded'
