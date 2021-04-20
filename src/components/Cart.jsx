@@ -15,12 +15,11 @@ import {
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState("")
 
   const cartItems = useSelector((state) => state.cart.cartItems);
 
-  const totalPrice = cartItems
-    .map((record) => parseFloat(record.price) * parseFloat(record.quantity))
-    .reduce((acc, num) => acc + num, 0);
+  //const cartItems = useSelector((state) => state.cartFromReducer.cartItems);
 
   const renderCartItems = cartItems.map((record, index) => (
     <div className='columns'>
@@ -73,7 +72,7 @@ const Cart = () => {
                 </div>
 
                 <div className='column center-container'>
-                  <span className='mobile-table-heading'> € {totalPrice}</span>
+                  <span className='mobile-table-heading'> € 33</span>
                 </div>
               </div>
             </div>
@@ -133,7 +132,7 @@ const Cart = () => {
                     <p className='title is-4'>Order Total </p>
                     <p className='title is-2'>
                       {" "}
-                      {totalPrice}
+
                       {"€"}
                     </p>
 

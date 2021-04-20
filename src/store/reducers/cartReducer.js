@@ -15,7 +15,7 @@ const cartReducer = (state = initState, action) => {
     case ADD_TO_CART:
       const localStorageItems =
         JSON.parse(localStorage.getItem("cartItems")) || [];
-      const updatedLocalStorageItems = [...localStorageItems, action.payload];
+      const updatedLocalStorageItems = [...localStorageItems, {...action.payload,quantity:1}];
 
       const updatedLocalStorageItemsJSON = JSON.stringify(
         updatedLocalStorageItems
@@ -23,7 +23,7 @@ const cartReducer = (state = initState, action) => {
       localStorage.setItem("cartItems", updatedLocalStorageItemsJSON);
       return {
         ...state,
-        cartItems: [...state.cartItems, action.payload],
+        cartItems: [...state.cartItems, {...action.payload,quantity:1}],
       };
 
     case REMOVE_FROM_CART:
