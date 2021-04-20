@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import logo from "../statics/logo.png";
 import Avatar from "react-avatar";
 import { logoutUserAction } from "../store/actions/authAction";
+import { emptyCart } from "../store/actions/cartAction";
 import { useSelector, useDispatch } from "react-redux";
 import { MdShoppingBasket } from "react-icons/md";
 import { BiUser } from "react-icons/bi";
@@ -11,14 +12,14 @@ import Cart from "./Cart";
 function Navbar() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const avatarUser = useSelector((state) => state.authFromReducer.user.avatar);
-
+  const avatarUser = useSelector((state) => state.user.user.avatar);
   const cartItems = useSelector((state) => {
-    return state.cartFromReducer.cartItems;
+    return state.cart.cartItems;
   });
 
   const HandleLogout = () => {
     dispatch(logoutUserAction());
+    dispatch(emptyCart());
     history.push("/");
   };
 
