@@ -16,6 +16,8 @@ import {
 const Cart = () => {
   const [redirect, setRedirect] = useState("");
   const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState("")
+
 
 
   const cartItems = useSelector((state) => state.cartFromReducer.cartItems);
@@ -24,8 +26,9 @@ const Cart = () => {
   const Total = cartItems.reduce((acc, record) => {return acc += record.price * record.quantity},  0);
 
 //esta es la funcion que no me esta sumando los precios , sino les esta haciendo "Join"
-  const subTotal = cartItems.map((record)=> {return parseFloat(record.price) * parseFloat(record.quantity)},0)
-
+  cartItems.map((record)=> { record.subtotal=parseFloat(record.price) * parseInt(record.quantity)
+    return record})
+console.log(cartItems)
 
 
 
@@ -62,7 +65,7 @@ const Cart = () => {
               <div className='column center-container'>
                 <span className='mobile-table-heading data-price'> </span>
 
-                <input className='quantity ' type="number" name='quantity' min='0' max='100' value='1' step='1'/>
+                <input className='quantity ' type="number" name='quantity' min='0' max='100' step='1' onChange={e => setQuantity(e.target.value)}/>
               </div>
 
               <div className='column center-container'>
@@ -71,7 +74,7 @@ const Cart = () => {
 
 
               <div className='column center-container'>
-              <span className='mobile-table-heading'> € {subTotal}</span>
+              <span className='mobile-table-heading'> € {record.subtotal}</span>
               </div>
             </div>
           </div>
