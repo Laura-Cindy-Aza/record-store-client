@@ -11,6 +11,10 @@
   background-size: cover;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  align-items: center;
+
+  justify-items: center;
 }
 .navbar-item1 {
   background-size: cover;
@@ -25,6 +29,13 @@
   );
   margin: 30px 40px;
   cursor: pointer;
+}
+
+/* .logo-container {
+  justify-content: center;
+} */
+.logo-landing {
+  max-width: 33%;
 }
 .with-border {
   border: 2px solid turquoise;

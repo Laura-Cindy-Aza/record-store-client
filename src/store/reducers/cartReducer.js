@@ -87,6 +87,7 @@ const cartReducer = (state = initState, action) => {
     case EMPTY_CART:
       return {
         state,
+        cartItems: [],
       };
 
     // END OF CASES
