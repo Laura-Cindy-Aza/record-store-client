@@ -15,10 +15,16 @@ function Login() {
   const history = useHistory();
 
   // Redux
+  const user = useSelector((state) => state.user.user);
 
   const [formData, setFormData] = useState({ email: "", password: "" });
 
   const inputRef = useRef();
+
+  useEffect(() => {
+    console.log("WTF?");
+    user.avatar && history.push("/dashboard");
+  }, [user]);
 
   useEffect(() => {
     inputRef.current.focus();
@@ -31,7 +37,6 @@ function Login() {
   const submitHandler = (event) => {
     event.preventDefault();
     dispatch(userLoginAction(formData));
-    history.push("/dashboard");
   };
 
   //Rendering part!!!!

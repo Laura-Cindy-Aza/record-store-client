@@ -31,11 +31,11 @@ function Dashboard() {
         <div className='columns is-multiline mt-4 '>
           {/* Map through the records and display them */}
           {recordsData.map((record, i) => (
-            <div key={i} className='card column is-one-fifth m-2'>
+            <div key={i} className='card column is-one-fifth m-2 is-mobile'>
               <img
                 src={record.cover}
                 alt={record.title}
-                className='card-image'
+                className='card-image '
               />
               <div className='card-content columns '>
                 <div className='column is-half'>
@@ -44,10 +44,12 @@ function Dashboard() {
                   <p className='content'>{record.year.slice(0, 4)}</p>
                 </div>
               </div>
-              <div className='is-flex is-centered'>
-                <p className='content has-text-info'>Price: {record.price} €</p>
+              <div className='is-flex is-centered price-container'>
+                <p className='content has-text-info price-info'>
+                  Price: {record.price} €
+                </p>
                 <button
-                  className='button is-light '
+                  className='button  add-button is-primary '
                   onClick={() => dispatch(addToCart(record))}>
                   <MdAdd />
                 </button>

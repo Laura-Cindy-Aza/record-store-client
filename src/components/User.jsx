@@ -148,8 +148,8 @@ function User() {
                   style={{ border: "5px solid" }}
                 />
               </figure>
-              <div className='tile is-ancestor p-4'>
-                <div className='tile  is-horizontal'>
+              <div className='tile is-ancestor is-12 p-4'>
+                <div className='tile is-12 is-horizontal'>
                   <div className='tile is-12 is-horizontal'>
                     <div className='tile is-4'>
                       <figure
@@ -189,43 +189,46 @@ function User() {
                     </div>
                   </div>
                 </div>
-                <div className='tile  is-horizontal'>
-                  <div className='tile is-12 is-horizontal'>
-                    <div className='tile is-4'>
-                      <figure
-                        name='Lady1'
-                        className='image is-128x128 ml-4 is-clickable'
-                        onClick={(e) => setAvatar(e.target.src)}>
-                        <img
-                          className='is-rounded'
-                          src='/images/lady1.jpg'
-                          alt='lady'
-                        />
-                      </figure>
-                    </div>
-                    <div className='tile is-4'>
-                      <figure
-                        name='Lady2'
-                        className='image is-128x128 ml-4 is-clickable'
-                        onClick={(e) => setAvatar(e.target.src)}>
-                        <img
-                          className='is-rounded'
-                          src='/images/lady2.jpg'
-                          alt='lady'
-                        />
-                      </figure>
-                    </div>
-                    <div className='tile is-4'>
-                      <figure
-                        name='Lady3'
-                        className='image is-128x128 ml-4 is-clickable'
-                        onClick={(e) => setAvatar(e.target.src)}>
-                        <img
-                          className='is-rounded'
-                          src='/images/lady3.jpg'
-                          alt='lady'
-                        />
-                      </figure>
+
+                <div className='tile is-ancestor is-12 p-4'>
+                  <div className='tile  is-horizontal  is-12'>
+                    <div className='tile is-12 is-horizontal'>
+                      <div className='tile is-4'>
+                        <figure
+                          name='Lady1'
+                          className='image is-128x128 ml-4 is-clickable'
+                          onClick={(e) => setAvatar(e.target.src)}>
+                          <img
+                            className='is-rounded'
+                            src='/images/lady1.jpg'
+                            alt='lady'
+                          />
+                        </figure>
+                      </div>
+                      <div className='tile is-4'>
+                        <figure
+                          name='Lady2'
+                          className='image is-128x128 ml-4 is-clickable'
+                          onClick={(e) => setAvatar(e.target.src)}>
+                          <img
+                            className='is-rounded'
+                            src='/images/lady2.jpg'
+                            alt='lady'
+                          />
+                        </figure>
+                      </div>
+                      <div className='tile is-4'>
+                        <figure
+                          name='Lady3'
+                          className='image is-128x128 ml-4 is-clickable'
+                          onClick={(e) => setAvatar(e.target.src)}>
+                          <img
+                            className='is-rounded'
+                            src='/images/lady3.jpg'
+                            alt='lady'
+                          />
+                        </figure>
+                      </div>
                     </div>
                   </div>
                 </div>

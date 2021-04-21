@@ -50,6 +50,21 @@
 .products-table {
   overflow-x: auto;
 }
+.price-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.price-info {
+  /* position: absolute;
+  right: 5;
+  bottom: 0; */
+}
+.add-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   /* soluciones modernas para problemas modernos jaja  */
