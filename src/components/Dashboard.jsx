@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecordsAction } from "../store/actions/recordsAction";
-import Avatar from "react-avatar";
 import Dashbar from "./Dashbar";
 import { MdAdd } from "react-icons/md";
 import { addToCart } from "../store/actions/cartAction";
@@ -11,7 +10,7 @@ function Dashboard() {
 
   useEffect(() => {
     dispatch(getRecordsAction());
-  }, []);
+  }, [dispatch]);
 
   const recordsData = useSelector((state) => {
     return state.records.records;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Redirect, useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { userLoginAction } from "../store/actions/authAction";
+
 import { editUserAction } from "../store/actions/usersAction";
 import Dashbar from "./Dashbar";
 
