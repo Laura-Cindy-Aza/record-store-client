@@ -144,89 +144,139 @@ function User() {
                   style={{ border: "5px solid" }}
                 />
               </figure>
-              <div className='tile is-ancestor is-12 p-4'>
-                <div className='tile is-12 is-horizontal'>
-                  <div className='tile is-12 is-horizontal'>
-                    <div className='tile is-4'>
-                      <figure
-                        name='Guy1'
-                        className='image is-128x128 ml-4 is-clickable'
-                        onClick={(e) => setAvatar(e.target.src)}>
-                        <img
-                          className='is-rounded'
-                          src='/images/guy1.jpg'
-                          alt='lady'
-                        />
-                      </figure>
-                    </div>
-                    <div className='tile is-4'>
-                      <figure
-                        name='Guy2'
-                        className='image is-128x128 ml-4 is-clickable'
-                        onClick={(e) => setAvatar(e.target.src)}>
-                        <img
-                          className='is-rounded'
-                          src='/images/guy2.jpg'
-                          alt='lady'
-                        />
-                      </figure>
-                    </div>
-                    <div className='tile is-4'>
-                      <figure
-                        name='Guy3'
-                        className='image is-128x128 ml-4 is-clickable'
-                        onClick={(e) => setAvatar(e.target.src)}>
-                        <img
-                          className='is-rounded'
-                          src='/images/guy3.jpg'
-                          alt='lady'
-                        />
-                      </figure>
-                    </div>
-                  </div>
-                </div>
+              <div className='column'>
+                <div className='container  is-flex'>
+                  <figure
+                    name='Guy1'
+                    className='image is-128x128 ml-4 is-clickable'
+                    onClick={(e) => setAvatar(e.target.src)}>
+                    <img
+                      className='is-rounded'
+                      src='/images/guy1.jpg'
+                      alt='lady'
+                    />
+                  </figure>
 
-                <div className='tile is-ancestor is-12 p-4'>
-                  <div className='tile  is-horizontal  is-12'>
-                    <div className='tile is-12 is-horizontal'>
-                      <div className='tile is-4'>
-                        <figure
-                          name='Lady1'
-                          className='image is-128x128 ml-4 is-clickable'
-                          onClick={(e) => setAvatar(e.target.src)}>
-                          <img
-                            className='is-rounded'
-                            src='/images/lady1.jpg'
-                            alt='lady'
-                          />
-                        </figure>
-                      </div>
-                      <div className='tile is-4'>
-                        <figure
-                          name='Lady2'
-                          className='image is-128x128 ml-4 is-clickable'
-                          onClick={(e) => setAvatar(e.target.src)}>
-                          <img
-                            className='is-rounded'
-                            src='/images/lady2.jpg'
-                            alt='lady'
-                          />
-                        </figure>
-                      </div>
-                      <div className='tile is-4'>
-                        <figure
-                          name='Lady3'
-                          className='image is-128x128 ml-4 is-clickable'
-                          onClick={(e) => setAvatar(e.target.src)}>
-                          <img
-                            className='is-rounded'
-                            src='/images/lady3.jpg'
-                            alt='lady'
-                          />
-                        </figure>
-                      </div>
-                    </div>
-                  </div>
+                  <figure
+                    name='Guy2'
+                    className='image is-128x128 ml-4 is-clickable'
+                    onClick={(e) => setAvatar(e.target.src)}>
+                    <img
+                      className='is-rounded'
+                      src='/images/guy2.jpg'
+                      alt='lady'
+                    />
+                  </figure>
+
+                  <figure
+                    name='Guy3'
+                    className='image is-128x128 ml-4 is-clickable'
+                    onClick={(e) => setAvatar(e.target.src)}>
+                    <img
+                      className='is-rounded'
+                      src='/images/guy3.jpg'
+                      alt='lady'
+                    />
+                  </figure>
+
+                  <figure
+                    name='Lady1'
+                    className='image is-128x128 ml-4 is-clickable'
+                    onClick={(e) => setAvatar(e.target.src)}>
+                    <img
+                      className='is-rounded'
+                      src='/images/lady1.jpg'
+                      alt='lady'
+                    />
+                  </figure>
+
+                  <figure
+                    name='Lady2'
+                    className='image is-128x128 ml-4 is-clickable'
+                    onClick={(e) => setAvatar(e.target.src)}>
+                    <img
+                      className='is-rounded'
+                      src='/images/lady2.jpg'
+                      alt='lady'
+                    />
+                  </figure>
+
+                  <figure
+                    name='Lady3'
+                    className='image is-128x128 ml-4 is-clickable'
+                    onClick={(e) => setAvatar(e.target.src)}>
+                    <img
+                      className='is-rounded'
+                      src='/images/lady3.jpg'
+                      alt='lady'
+                    />
+                  </figure>
+
+                  <figure
+                    name='Guy5'
+                    className='image is-128x128 ml-4 is-clickable'
+                    onClick={(e) => setAvatar(e.target.src)}>
+                    <img
+                      className='is-rounded'
+                      src='/images/guy5.jpg'
+                      alt='lady'
+                    />
+                  </figure>
+
+                  <figure
+                    name='Guy6'
+                    className='image is-128x128 ml-4 is-clickable'
+                    onClick={(e) => setAvatar(e.target.src)}>
+                    <img
+                      className='is-rounded'
+                      src='/images/guy6.jpg'
+                      alt='lady'
+                    />
+                  </figure>
+
+                  <figure
+                    name='Guy7'
+                    className='image is-128x128 ml-4 is-clickable'
+                    onClick={(e) => setAvatar(e.target.src)}>
+                    <img
+                      className='is-rounded'
+                      src='/images/guy7.jpg'
+                      alt='lady'
+                    />
+                  </figure>
+
+                  <figure
+                    name='Lady4'
+                    className='image is-128x128 ml-4 is-clickable'
+                    onClick={(e) => setAvatar(e.target.src)}>
+                    <img
+                      className='is-rounded'
+                      src='/images/lady4.jpg'
+                      alt='lady'
+                    />
+                  </figure>
+
+                  <figure
+                    name='Lady5'
+                    className='image is-128x128 ml-4 is-clickable'
+                    onClick={(e) => setAvatar(e.target.src)}>
+                    <img
+                      className='is-rounded'
+                      src='/images/lady5.jpg'
+                      alt='lady'
+                    />
+                  </figure>
+
+                  <figure
+                    name='Lady6'
+                    className='image is-128x128 ml-4 is-clickable'
+                    onClick={(e) => setAvatar(e.target.src)}>
+                    <img
+                      className='is-rounded'
+                      src='/images/lady6.jpg'
+                      alt='lady'
+                    />
+                  </figure>
                 </div>
               </div>
             </div>

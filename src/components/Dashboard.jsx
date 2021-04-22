@@ -39,12 +39,12 @@ function Dashboard() {
                   <span></span>
                   <p className='content is-size-5 '>{record.title}</p>
                   <p className='content'>{record.year.slice(0, 4)}</p>
+                  <p className='content has-text-info price-info'>
+                    Price: {record.price} €
+                  </p>
                 </div>
               </div>
               <div className='is-flex is-centered price-container'>
-                <p className='content has-text-info price-info'>
-                  Price: {record.price} €
-                </p>
                 <button
                   className='button  add-button is-primary '
                   onClick={() => dispatch(addToCart(record))}>

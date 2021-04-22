@@ -55,11 +55,7 @@
   align-items: center;
   position: relative;
 }
-.price-info {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-}
+
 .add-button {
   position: absolute;
   right: 0;
