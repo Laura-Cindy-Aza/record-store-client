@@ -13,32 +13,39 @@ const initState = { cartItems: [] };
 const cartReducer = (state = initState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      const localStorageItems =
-        JSON.parse(localStorage.getItem("cartItems")) || [];
-      const updatedLocalStorageItems = [...localStorageItems, {...action.payload,quantity:1}];
-
-      const updatedLocalStorageItemsJSON = JSON.stringify(
-        updatedLocalStorageItems
+      let recordIdMatch = state.cartItems.find(
+        (el) => el._id === action.payload._id
       );
-      localStorage.setItem("cartItems", updatedLocalStorageItemsJSON);
-      return {
-        ...state,
-        cartItems: [...state.cartItems, {...action.payload,quantity:1}],
-      };
+      console.log(recordIdMatch);
+      if (!recordIdMatch) {
+        return {
+          ...state,
+          cartItems: [...state.cartItems, { ...action.payload, quantity: 1 }],
+        };
+      } else
+        return {
+          ...state,
+          cartItems: [
+            ...state.cartItems,
+            { ...(action.payload.quantity = +1) },
+          ],
+        };
 
     case REMOVE_FROM_CART:
-      const unfilteredItems = JSON.parse(localStorage.getItem("cartItems"));
-      const filteredItems = unfilteredItems.filter(
-        (item) => item.id !== action.payload
-      );
-      console.log("filteredItems", filteredItems);
-      const filteredItemsJSON = JSON.stringify(filteredItems);
+      // const unfilteredItems = JSON.parse(localStorage.getItem("cartItems"));
+      // const filteredItems = unfilteredItems.filter(
+      //   (item) => item.id !== action.payload
+      // );
+      // console.log("filteredItems", filteredItems);
+      // const filteredItemsJSON = JSON.stringify(filteredItems);
 
-      localStorage.setItem("cartItems", filteredItemsJSON);
+      // localStorage.setItem("cartItems", filteredItemsJSON);
 
       return {
         ...state,
-        cartItems: filteredItems,
+        cartItems: state.cartItems.filter(
+          (cartItem) => cartItem._id !== action.payload._id
+        ),
       };
 
     case INCREASE_QUANTITY:
@@ -86,7 +93,7 @@ const cartReducer = (state = initState, action) => {
     // user wants to clear cart
     case EMPTY_CART:
       return {
-        state,
+        ...state,
         cartItems: [],
       };
 

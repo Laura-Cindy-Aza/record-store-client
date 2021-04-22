@@ -15,14 +15,14 @@ import {
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState("")
+  const [quantity, setQuantity] = useState("");
 
   const cartItems = useSelector((state) => state.cart.cartItems);
 
   //const cartItems = useSelector((state) => state.cartFromReducer.cartItems);
 
   const renderCartItems = cartItems.map((record, index) => (
-    <div className='columns'>
+    <div key={index} className='columns'>
       <div className='column card '>
         {/* card records header!  */}
 
@@ -38,10 +38,10 @@ const Cart = () => {
           {/* card records info */}
           <div id='shopping-cart'>
             <div>
-              <div key={index} className='columns product-row'>
+              <div className='columns product-row'>
                 <div className='column product-image'>
                   <figure>
-                    <img src={record.cover} alt='cover' />
+                    <img width='90px' src={record.cover} alt='cover' />
                   </figure>
                 </div>
 
@@ -130,17 +130,18 @@ const Cart = () => {
 
                   <div className='media-content has-text-centered	 '>
                     <p className='title is-4'>Order Total </p>
-                    <p className='title is-2'>
-                      {" "}
-
-                      {"€"}
-                    </p>
+                    <p className='title is-2'> {"€"}</p>
 
                     <Link to='checkout'>
                       <button className='button is-primary mb-2'>
                         Go to Checkout!
                       </button>
                     </Link>
+                    <button
+                      onClick={() => dispatch(emptyCart())}
+                      className='button is-danger mb-2'>
+                      Empty cart!
+                    </button>
 
                     <p className='has-text-black' id='hover'>
                       Place your order now and get a
