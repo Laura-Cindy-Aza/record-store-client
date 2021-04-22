@@ -56,9 +56,9 @@
   position: relative;
 }
 .price-info {
-  /* position: absolute;
-  right: 5;
-  bottom: 0; */
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 .add-button {
   position: absolute;

@@ -6,26 +6,21 @@ import Dashboard from "./Dashboard";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import User from "./User";
-import UserProfile from "./UserProfile";
 import notValid from "./notValid";
-import { useSelector } from "react-redux";
 import PrivateRoute from "./PrivateRoute";
 import Cart from "./Cart";
 
 function App() {
   return (
     <>
+      <Navbar />
       <Switch>
         <Route exact path='/' component={LandingPage} />
-        <Route path='/login' component={Login} />
-        <Route path='/signUp' component={SignUp} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/signUp' component={SignUp} />
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <PrivateRoute exact path='/user' component={User} />
-        <PrivateRoute path='/cart' component={Cart} />
-        {/* <Route path='/dashboard' component={Dashboard} /> */}
-        {/* <Route path='/user' component={User} /> */}
-        <Route path='/userProfile' component={UserProfile} />
-        <Route path='/notValid' component={notValid} />
+        <PrivateRoute exact path='/cart' component={Cart} />
         <Route path='/*' component={notValid} />
       </Switch>
     </>

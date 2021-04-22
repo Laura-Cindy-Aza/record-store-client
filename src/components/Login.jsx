@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { userLoginAction } from "../store/actions/authAction";
 import { Link } from "react-router-dom";
 import Lady from "../assets/lady-headphones.jpg";
-import Navbar from "./Navbar";
 
 function Login() {
   const dispatch = useDispatch();
@@ -41,7 +40,6 @@ function Login() {
 
   return (
     <>
-      <Navbar />
       <div className='container is-fluid'>
         <div className='columns'>
           <div

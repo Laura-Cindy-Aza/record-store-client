@@ -1,13 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 import { editUserAction } from "../store/actions/usersAction";
-import Dashbar from "./Dashbar";
 
 function User() {
   const dispatch = useDispatch();
-  // const authUser = useSelector((state) => state.authUser.user);
   const user = useSelector((state) => state.user.user);
 
   // to go back
@@ -52,7 +49,6 @@ function User() {
 
   return (
     <>
-      <Dashbar />
       <div className='container is-fluid'>
         <div className='columns'>
           <div className='column  is-flex is-justify-content-center is-align-content-center '>

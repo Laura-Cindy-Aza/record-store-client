@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecordsAction } from "../store/actions/recordsAction";
-import Dashbar from "./Dashbar";
 import { MdAdd } from "react-icons/md";
 import { addToCart } from "../store/actions/cartAction";
 
@@ -22,15 +21,13 @@ function Dashboard() {
 
   return (
     <>
-      <Dashbar />
-
       <div className='container'>
         <h1 className='is-size-2'>Dashboard</h1>
         <h3>Here you can find all our records</h3>
         <div className='columns is-multiline mt-4 '>
           {/* Map through the records and display them */}
           {recordsData.map((record, i) => (
-            <div key={i} className='card column is-one-fifth m-2 is-mobile'>
+            <div key={i} className='card column is-one-fifth mt-2 is-mobile'>
               <img
                 src={record.cover}
                 alt={record.title}

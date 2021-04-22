@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Dashbar from "./Dashbar";
-import { Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -73,7 +71,7 @@ const Cart = () => {
                 <div className='column center-container'>
                   <span className='mobile-table-heading'>
                     {" "}
-                    {record.quantity * record.price}€
+                    € {record.quantity * record.price}
                   </span>
                 </div>
               </div>
