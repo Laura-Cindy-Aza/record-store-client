@@ -37,28 +37,7 @@ const cartReducer = (state = initState, action) => {
         };
       }
 
-    // return {
-    //   ...state,
-    //   cartItems: [
-    //     ...state.cartItems,
-    //     state.cartItems.map((el) =>
-    //       el._id === action.payload._id
-    //         ? { ...el, quantity: el.quantity + 1 }
-    //         : el
-    //     ),
-    //   ],
-    // };
-
     case REMOVE_FROM_CART:
-      // const unfilteredItems = JSON.parse(localStorage.getItem("cartItems"));
-      // const filteredItems = unfilteredItems.filter(
-      //   (item) => item.id !== action.payload
-      // );
-      // console.log("filteredItems", filteredItems);
-      // const filteredItemsJSON = JSON.stringify(filteredItems);
-
-      // localStorage.setItem("cartItems", filteredItemsJSON);
-
       return {
         ...state,
         cartItems: state.cartItems.filter(
@@ -67,45 +46,29 @@ const cartReducer = (state = initState, action) => {
       };
 
     case INCREASE_QUANTITY:
-      const initialQuantity = JSON.parse(localStorage.getItem("cartItems"));
-      const targetItem = initialQuantity.find(
-        (item) => item.id === action.payload
+      const targetItem = state.cartItems.find(
+        (item) => item._id === action.payload
       );
       targetItem.quantity += 1;
-      const unfilteredItemsQty = JSON.parse(localStorage.getItem("cartItems"));
-      const filteredItemsQty = unfilteredItemsQty.filter(
-        (item) => item.id !== action.payload
+      const filteredItems = state.cartItems.filter(
+        (item) => item._id !== action.payload
       );
-
-      console.clear();
-      console.log("target", targetItem.quantity);
-      const resultArr = [...filteredItemsQty, targetItem];
-      localStorage.setItem("cartItems", JSON.stringify(resultArr));
-
       return {
         ...state,
-        cartItems: [...filteredItemsQty, targetItem],
+        cartItems: [...filteredItems, targetItem],
       };
 
     case DECREASE_QUANTITY:
-      const initialQuantity2 = JSON.parse(localStorage.getItem("cartItems"));
-      const targetItem2 = initialQuantity2.find(
-        (item) => item.id === action.payload
+      const targetItem2 = state.cartItems.find(
+        (item) => item._id === action.payload
       );
       targetItem2.quantity -= 1;
-      const unfilteredItemsQty2 = JSON.parse(localStorage.getItem("cartItems"));
-      const filteredItemsQty2 = unfilteredItemsQty2.filter(
-        (item) => item.id !== action.payload
+      const filteredItems2 = state.cartItems.filter(
+        (item) => item._id !== action.payload
       );
-
-      console.clear();
-      console.log("target", targetItem2.quantity);
-      const resultArr2 = [...filteredItemsQty2, targetItem2];
-      localStorage.setItem("cartItems", JSON.stringify(resultArr2));
-
       return {
         ...state,
-        cartItems: [...filteredItemsQty2, targetItem2],
+        cartItems: [...filteredItems2, targetItem2],
       };
 
     // user wants to clear cart

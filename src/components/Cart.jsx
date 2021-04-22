@@ -9,6 +9,7 @@ import {
   removeFromCart,
   emptyCart,
 } from "../store/actions/cartAction";
+import { MdAdd, MdRemove } from "react-icons/md";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -50,15 +51,7 @@ const Cart = () => {
                 <div className='column center-container'>
                   <span className='mobile-table-heading'> </span>
 
-                  <input
-                    className='quantity '
-                    type='number'
-                    name='quantity'
-                    min='0'
-                    max='100'
-                    value={record.quantity}
-                    step='1'
-                  />
+                  <p>{record.quantity}</p>
                 </div>
 
                 <div className='column center-container'>
@@ -77,7 +70,18 @@ const Cart = () => {
               </div>
             </div>
 
-            <section className='columns product-row'></section>
+            <section className='columns product-row'>
+              <button
+                className='button  is-light is-primary '
+                onClick={() => dispatch(increaseQuantity(record._id))}>
+                <MdAdd />
+              </button>
+              <button
+                className='button  is-light is-primary '
+                onClick={() => dispatch(decreaseQuantity(record._id))}>
+                <MdRemove />
+              </button>
+            </section>
           </div>
         </section>
 

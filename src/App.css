@@ -51,8 +51,6 @@
   overflow-x: auto;
 }
 .price-container {
-  display: flex;
-  align-items: center;
   position: relative;
 }
 
