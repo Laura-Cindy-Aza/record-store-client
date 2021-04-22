@@ -38,7 +38,8 @@ function Dashboard() {
               />
               <div className='card-content columns '>
                 <div className='column is-half'>
-                  <p className='content is-size-4'>{record.artist}</p>
+                  <p className='content is-size-4'>{record.artist} </p>{" "}
+                  <span></span>
                   <p className='content is-size-5 '>{record.title}</p>
                   <p className='content'>{record.year.slice(0, 4)}</p>
                 </div>

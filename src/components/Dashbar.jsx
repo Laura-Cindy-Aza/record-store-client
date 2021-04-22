@@ -17,6 +17,10 @@ function Navbar() {
     return state.cart.cartItems;
   });
 
+  const itemsInCart = cartItems.reduce((acc, item) => {
+    return acc + item.quantity;
+  }, 0);
+
   const HandleLogout = () => {
     dispatch(logoutUserAction());
     dispatch(emptyCart());
@@ -65,7 +69,7 @@ function Navbar() {
                   </span>
                   <span>Cart</span>
                   <span title='Badge top right' className='badge'>
-                    ({cartItems.length})
+                    ({itemsInCart})
                   </span>
                 </span>
               </Link>
