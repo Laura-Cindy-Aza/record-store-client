@@ -13,23 +13,41 @@ const initState = { cartItems: [] };
 const cartReducer = (state = initState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      let recordIdMatch = state.cartItems.find(
+      const itemInCart = state.cartItems.find(
         (el) => el._id === action.payload._id
       );
-      console.log(recordIdMatch);
-      if (!recordIdMatch) {
+
+      if (!itemInCart) {
         return {
           ...state,
-          cartItems: [...state.cartItems, { ...action.payload, quantity: 1 }],
+          cartItems: [...state.cartItems, action.payload],
         };
-      } else
+      } else {
+        // delete ite that already exists
+        // add new item after increasing the qty
+        const newCartItems = state.cartItems.filter(
+          (item) => item._id !== action.payload._id
+        );
         return {
           ...state,
           cartItems: [
-            ...state.cartItems,
-            { ...(action.payload.quantity = +1) },
+            ...newCartItems,
+            { ...action.payload, quantity: itemInCart.quantity + 1 },
           ],
         };
+      }
+
+    // return {
+    //   ...state,
+    //   cartItems: [
+    //     ...state.cartItems,
+    //     state.cartItems.map((el) =>
+    //       el._id === action.payload._id
+    //         ? { ...el, quantity: el.quantity + 1 }
+    //         : el
+    //     ),
+    //   ],
+    // };
 
     case REMOVE_FROM_CART:
       // const unfilteredItems = JSON.parse(localStorage.getItem("cartItems"));
