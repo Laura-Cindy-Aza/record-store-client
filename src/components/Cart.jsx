@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import music from "../statics/logo.png";
 import {
-  addToCart,
   decreaseQuantity,
   increaseQuantity,
   removeFromCart,
@@ -41,7 +40,7 @@ const Cart = () => {
               <div className='columns product-row'>
                 <div className='column product-image'>
                   <figure>
-                    <img width='90px' src={record.cover} alt='cover' />
+                    <img width='100px' src={record.cover} alt='cover' />
                   </figure>
                 </div>
 
@@ -59,7 +58,7 @@ const Cart = () => {
                     name='quantity'
                     min='0'
                     max='100'
-                    value='1'
+                    value={record.quantity}
                     step='1'
                   />
                 </div>
@@ -72,7 +71,10 @@ const Cart = () => {
                 </div>
 
                 <div className='column center-container'>
-                  <span className='mobile-table-heading'> € 33</span>
+                  <span className='mobile-table-heading'>
+                    {" "}
+                    {record.quantity * record.price}€
+                  </span>
                 </div>
               </div>
             </div>
