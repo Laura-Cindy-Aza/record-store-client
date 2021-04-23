@@ -1,23 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Redirect, useHistory, Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { userLogin, userLoginAction } from "../store/actions/authAction";
-// import { getUsersAction } from "../store/actions/usersAction";
-
+import { useHistory, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userLoginAction } from "../store/actions/authAction";
 import music from "../assets/music-6053548_1280.jpg";
 import { addUserAction } from "../store/actions/usersAction";
-import Navbar from "./Navbar";
-
-// import { useForm } from "react-hook-form";
 
 function Signup() {
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getUsersAction());
-  // }, []);
+  const inputRef = useRef();
 
   // to go back
+
   const history = useHistory();
 
   // get user data
@@ -29,9 +22,6 @@ function Signup() {
     email: "",
     password: "",
   });
-  const [redirect, setRedirect] = useState("");
-
-  const inputRef = useRef();
 
   useEffect(() => {
     inputRef.current.focus();
@@ -50,7 +40,6 @@ function Signup() {
 
   return (
     <>
-      <Navbar />
       <div className='container is-fluid'>
         <p className='is-size-2'>Register to buy last Records!</p>
         <div className='columns'>
@@ -145,9 +134,6 @@ function Signup() {
                   onClick={submitHandler}>
                   Sign Up!
                 </button>
-                {redirect === "wrong" && (
-                  <p className='has-text-danger'>You flipped! Try again</p>
-                )}
               </div>
               <div className='columns is-centered'>
                 <p className='mt-4'>

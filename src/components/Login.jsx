@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { userLogin } from "../store/actions/authAction";
-// import { getUsersAction } from "../store/actions/usersAction";
 import { userLoginAction } from "../store/actions/authAction";
 import { Link } from "react-router-dom";
 import Lady from "../assets/lady-headphones.jpg";
-import Navbar from "./Navbar";
 
 function Login() {
   const dispatch = useDispatch();
@@ -24,7 +21,7 @@ function Login() {
   useEffect(() => {
     console.log("WTF?");
     user.avatar && history.push("/dashboard");
-  }, [user]);
+  }, [user, history]);
 
   useEffect(() => {
     inputRef.current.focus();
@@ -43,7 +40,6 @@ function Login() {
 
   return (
     <>
-      <Navbar />
       <div className='container is-fluid'>
         <div className='columns'>
           <div

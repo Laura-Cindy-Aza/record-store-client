@@ -1,28 +1,26 @@
 import React, { useEffect, useState } from "react";
-import Dashbar from "./Dashbar";
-import { Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import music from "../statics/logo.png";
 import {
-  addToCart,
   decreaseQuantity,
   increaseQuantity,
   removeFromCart,
   emptyCart,
 } from "../store/actions/cartAction";
+import { MdAdd, MdRemove } from "react-icons/md";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState("")
+  const [quantity, setQuantity] = useState("");
 
   const cartItems = useSelector((state) => state.cart.cartItems);
 
   //const cartItems = useSelector((state) => state.cartFromReducer.cartItems);
 
   const renderCartItems = cartItems.map((record, index) => (
-    <div className='columns'>
+    <div key={index} className='columns'>
       <div className='column card '>
         {/* card records header!  */}
 
@@ -38,10 +36,10 @@ const Cart = () => {
           {/* card records info */}
           <div id='shopping-cart'>
             <div>
-              <div key={index} className='columns product-row'>
+              <div className='columns product-row'>
                 <div className='column product-image'>
                   <figure>
-                    <img src={record.cover} alt='cover' />
+                    <img width='100px' src={record.cover} alt='cover' />
                   </figure>
                 </div>
 
@@ -53,15 +51,7 @@ const Cart = () => {
                 <div className='column center-container'>
                   <span className='mobile-table-heading'> </span>
 
-                  <input
-                    className='quantity '
-                    type='number'
-                    name='quantity'
-                    min='0'
-                    max='100'
-                    value='1'
-                    step='1'
-                  />
+                  <p>{record.quantity}</p>
                 </div>
 
                 <div className='column center-container'>
@@ -72,12 +62,26 @@ const Cart = () => {
                 </div>
 
                 <div className='column center-container'>
-                  <span className='mobile-table-heading'> € 33</span>
+                  <span className='mobile-table-heading'>
+                    {" "}
+                    € {record.quantity * record.price}
+                  </span>
                 </div>
               </div>
             </div>
 
-            <section className='columns product-row'></section>
+            <section className='columns product-row'>
+              <button
+                className='button  is-light is-primary '
+                onClick={() => dispatch(increaseQuantity(record._id))}>
+                <MdAdd />
+              </button>
+              <button
+                className='button  is-light is-primary '
+                onClick={() => dispatch(decreaseQuantity(record._id))}>
+                <MdRemove />
+              </button>
+            </section>
           </div>
         </section>
 
@@ -130,17 +134,18 @@ const Cart = () => {
 
                   <div className='media-content has-text-centered	 '>
                     <p className='title is-4'>Order Total </p>
-                    <p className='title is-2'>
-                      {" "}
-
-                      {"€"}
-                    </p>
+                    <p className='title is-2'> {"€"}</p>
 
                     <Link to='checkout'>
                       <button className='button is-primary mb-2'>
                         Go to Checkout!
                       </button>
                     </Link>
+                    <button
+                      onClick={() => dispatch(emptyCart())}
+                      className='button is-danger mb-2'>
+                      Empty cart!
+                    </button>
 
                     <p className='has-text-black' id='hover'>
                       Place your order now and get a
